@@ -9,6 +9,7 @@
 - Gunnlaugur Hlynur Birgisson 
 - Hrafnkell Þorri Þrastarson 
 - Garpur Hnefill Emilíuson
+- Fannar Leó Örvarsson
 
 ## Description of project
 
