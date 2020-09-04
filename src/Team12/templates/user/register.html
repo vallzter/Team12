@@ -3,7 +3,7 @@
     <h1>Register here!</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_ul }}
         <button type="submit">Register</button>
     </form>
 {% endblock %}
