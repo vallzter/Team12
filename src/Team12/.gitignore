@@ -20,4 +20,4 @@ media
 .idea/**/gradle.xml 
 .idea/**/libraries 
 *.iws /out/
-venv/
+Team12/__pycache__/
