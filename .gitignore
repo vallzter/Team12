@@ -7,6 +7,8 @@ db.sqlite3
 media
 
 # If you are using PyCharm # 
+.idea/
+venv/
 .idea/**/workspace.xml 
 .idea/**/tasks.xml 
 .idea/dictionaries 
@@ -20,3 +22,11 @@ media
 .idea/**/gradle.xml 
 .idea/**/libraries 
 *.iws /out/ 
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/Team12.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/Team12.iml
+.idea/workspace.xml
