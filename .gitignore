@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Django #
 *.log
 *.pot
@@ -31,6 +31,3 @@ venv/
 .idea/workspace.xml
 .idea/Team12.iml
 .idea/workspace.xml
-=======
-/venv/
->>>>>>> Elmar

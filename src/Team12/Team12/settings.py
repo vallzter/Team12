@@ -85,6 +85,7 @@ DATABASES = {
         'PASSWORD': 'gplQARxZ6HiDk74iSGngnXqCzVfWo8hm',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432',
+        'TEST': {'NAME': 'db_test'},
         'CONN_MAX_AGE': 0
     }
 }
