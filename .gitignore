@@ -1,6 +1,33 @@
 
+# Django #
+*.log
+*.pot
 *.pyc
-*.pyc
-src/Team12/Team12/__pycache__/settings.cpython-38.pyc
-src/Team12/user/__pycache__/urls.cpython-38.pyc
-src/Team12/user/__pycache__/views.cpython-38.pyc
+__pycache__
+db.sqlite3
+media
+
+# If you are using PyCharm # 
+.idea/
+venv/
+.idea/**/workspace.xml 
+.idea/**/tasks.xml 
+.idea/dictionaries 
+.idea/**/dataSources/ 
+.idea/**/dataSources.ids 
+.idea/**/dataSources.xml 
+.idea/**/dataSources.local.xml 
+.idea/**/sqlDataSources.xml 
+.idea/**/dynamic.xml 
+.idea/**/uiDesigner.xml 
+.idea/**/gradle.xml 
+.idea/**/libraries 
+*.iws /out/ 
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/Team12.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/Team12.iml
+.idea/workspace.xml
