@@ -3,7 +3,7 @@ from user import views
 
 # Create your tests here.
 
-class FrontPageTest(SimpleTestCase):
+class FrontPageTest(TestCase):
 
     #Experimental test
     def test_code(self): #This should return as false until we have a homepage
@@ -13,7 +13,7 @@ class FrontPageTest(SimpleTestCase):
 
     def test_login(self):
         testClient = Client()
-        isLogged = testClient.post('/login/', {'username': 'john', 'password': 'smith'})
+        isLogged = testClient.post('/login', {'username': 'John', 'password': 'Hrafnkell'})
         isLogged = testClient.get('/customer/details/')
         print(isLogged.content)
         #self.assertEqual(isLogged.status_code, 200)
