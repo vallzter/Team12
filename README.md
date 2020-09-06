@@ -3,35 +3,27 @@
 ## Collaborators
 
 - Bjarki Már Friðriksson
-- Ýmir Þórleifsson 
-- Elmar Ólafsson 
-- Valgeir Ingi Þórðarson 
-- Gunnlaugur Hlynur Birgisson 
-- Hrafnkell Þorri Þrastarson 
-- Garpur Hnefill Emilíuson
+- Elmar Ólafsson
 - Fannar Leó Örvarsson
+- Garpur Hnefill Emilíuson
+- Gunnlaugur Hlynur Birgisson
+- Hrafnkell Þorri Þrastarson
+- Valgeir Ingi Þórðarson
+- Ýmir Þórleifsson
 
-## Description of the Project
+## Description of the project
 
-The project is a website, developed in Django, for users to easily buy groceries. Simular to Eldum Rétt or Blue Apron, the service will send ingrediences to a customer periodically on a weekly basis or more often.
+The project is a platform for users to easily buy meal packages containing groceries, similar to Eldum Rétt or Blue Apron, which are delivered to the user to his choosing, whether it is on a weekly basis or more often.
 
-## Sprint 1
+## Agreed tasks with the product owner
+The project currently contains a registration/login form where the user can register and login and also a button where the user can delete his account.
 
-We desided on building the website up in Django and Postgres. Possibly using Atomic for the UI in the future. We are currently using built in models; admin and users. We have implemented register, login, look at profile, logout and delete user.
-
-## Software Architecture
-
-Our software is designed in well defined layers; Presentation Layer, Logic Layer and Data Layer. 
-
-![](readme_images/layers.png)
-
-We are using Django to develop both the PL and LL. In the PL we use Django templates, that uses html and css along with a bit of python. In the LL we only use python to build Django views, that deside on templates to show user and we build Django models, this desides what and how data is stored.
-
-The datalayer is stored in SQL using Postgres, we store our models in SQL table format. 
+## Technical aspects
+This is a RESTful API that uses Django as framework and is connected to a PostgreSQL database.
 
 ## How to run
 
-### Programs need
+### Programs needed
 1. [Python 3.8](https://www.python.org/downloads/)
 
 2. [pip](https://bootstrap.pypa.io/get-pip.py)
@@ -83,3 +75,5 @@ Navigate to `manage.py`
 ```
 > python manage.py runserver
 ```
+
+## How to test
