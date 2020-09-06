@@ -51,11 +51,11 @@ Using conda:
 ```
 Using virtualenv (Windows):
 ```
-> python-django\Scripts\activate
+> django-env\Scripts\activate
 ```
 Using virtualenv (Mac, Linux):
 ```
-$ source python-django/bin/activate
+$ source django-env/bin/activate
 ```
 
 ### Install the modules
