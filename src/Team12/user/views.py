@@ -37,17 +37,24 @@ def register(request):
 
 def index(request):
     '''
-    User page
+    User page / menu
     '''
     return render(request, 'user/user_page.html')
 
 
 @login_required
 def profile(request):
+    '''
+    Let's authentiacted users view their profile
+    '''
     return render(request, 'user/profile.html')
 
 
 def remove_user(request):
+    '''
+    Removes user if he is not superuser (admin) and 
+    is logged in.
+    '''
     user = request.user
     if user.is_authenticated:
         if not user.is_superuser:

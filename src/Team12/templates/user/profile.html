@@ -6,7 +6,4 @@ Welcome to your profile, {{user.get_username}}!
 </form>
 <a href="{% url 'remove' %}">Remove account</a>
 
-{% comment %} <form method="post" action="{% url 'remove' %}">
-    {% csrf_token %}
-    <button type="submit">Remove account</button> {% endcomment %}
 </form>

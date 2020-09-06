@@ -17,62 +17,55 @@ The project is a platform for users to easily buy groceries, that simular to Eld
 
 ## How to run
 
-### First time run
+### Programs need
+1. [Python 3.8](https://www.python.org/downloads/)
 
-1. Download and install python from python.org. 
+2. [pip](https://bootstrap.pypa.io/get-pip.py)
 
-2. Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py).
+3. [Anaconda](https://www.anaconda.com/products/individual) (Optional)
 
-3. Install pip.
-
-Open terminal in `get-pip.py` path and type in:
-
-```bash 
-python get-pip.py
-```
-
-
-
-4. Create a virtual environment
-
-Install the module we will be using:
-
-```bash
-pip install venv
-```
-
-Create the environment
+In the terminal where `get-pip.py` is located install the pip file:
 
 ```
-python venv python-django
+> python get-pip.py
 ```
 
-5. Activate the virtual environment
+### Create virtual environment
 
-on Windows type:
-```bash
-python-django\Scripts\activate
-```
-on UNIX (Mac, Linux) type:
-``` bash
-source python-django/bin/activate
-```
-
-6. Install Django
+Using conda:
 
 ```
-pip install django
+> conda create --name django-env python=3.8
 ```
 
-7. Run the project
-```bash
-python src/Team12/manage.py runserver
+Using virtualenv:
+
+```
+> pip install virtualenv
+> virtualenv django-env
+```
+### Activate virtual environment
+Using conda:
+```
+> activate django-env
+```
+Using virtualenv (Windows):
+```
+> python-django\Scripts\activate
+```
+Using virtualenv (Mac, Linux):
+```
+$ source python-django/bin/activate
 ```
 
-### Normal run
-1. Activate your virtual environment containing Django
+### Install the modules
+While using the virtual environment:
+```
+> pip install -r requirements.txt
+```
 
-2. Run the project
-```bash
-python src/Team12/manage.py runserver
+### Run server
+Navigate to `manage.py`
+```
+> python manage.py runserver
 ```
