@@ -20,6 +20,8 @@ We decided on building the website with Django as framework connected to a Postg
 ## Software architecture
 Our software is designed in well defined layers; Presentation Layer, Logic Layer and Data Layer.
 
+![](readme_images/layers.png)
+
 We are using Django to develop both the PL and LL. In the PL we use Django templates, that use HTML and CSS along with a bit of Python. In the LL we only use Python to build Django views, that decide on templates to show user. We also build Django models, that decide what and how data is stored.
 
 The data layer is stored in SQL using Postgres, we store our models in SQL table format.
