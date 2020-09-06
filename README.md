@@ -12,14 +12,17 @@
 - Ýmir Þórleifsson
 
 ## Description of the project
+The project is a website, developed in Django, for users to easily buy meal packages containing groceries. Similar to Eldum Rétt or Blue Apron, the service will send ingredients to a customer periodically, e.g. on a weekly basis or more often.
 
-The project is a platform for users to easily buy meal packages containing groceries, similar to Eldum Rétt or Blue Apron, which are delivered to the user to his choosing, whether it is on a weekly basis or more often.
+## Sprint 1
+We decided on building the website with Django as framework connected to a Postgres as database. Possibly using Atomic for the UI in the future. We are currently using built-in models, admin and users. As of now, the website contains functionality for users to register, login, look at their profile, logout and delete their account.
 
-## Agreed tasks with the product owner
-The project currently contains a registration/login form where the user can register and login and also a button where the user can delete his account.
+## Software architecture
+Our software is designed in well defined layers; Presentation Layer, Logic Layer and Data Layer.
 
-## Technical aspects
-This is a RESTful API that uses Django as framework and is connected to a PostgreSQL database.
+We are using Django to develop both the PL and LL. In the PL we use Django templates, that use HTML and CSS along with a bit of Python. In the LL we only use Python to build Django views, that decide on templates to show user. We also build Django models, that decide what and how data is stored.
+
+The data layer is stored in SQL using Postgres, we store our models in SQL table format.
 
 ## How to run
 
@@ -77,3 +80,5 @@ Navigate to `manage.py`
 ```
 
 ## How to test
+````
+> python manage.py test
