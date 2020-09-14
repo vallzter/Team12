@@ -51,14 +51,18 @@ def profile(request):
 
 
 def remove_user(request):
+    
     '''
     Removes user if he is not superuser (admin) and 
     is logged in.
     '''
     user = request.user
-    if user.is_authenticated:
-        if not user.is_superuser:
-            request.user.delete()
-            return HttpResponse(f'{user.username} was deleted')
+    if not user.is_authenticated:
+        return HttpResponse('Must be logged in to delete user')
+    if user.is_superuser:
+        return HttpResponse('Delete superuser from admin')
+    if request.method == "POST":
+        request.user.delete()
+        return redirect('/user')
+    return render(request, 'user/user_remove.html')
     
-    return HttpResponse('Must be logged in to delete user')
