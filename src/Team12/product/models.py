@@ -6,7 +6,12 @@ class MealPlan(models.Model):
 
     name = models.CharField(max_length=50)
     price = models.IntegerField()
-    
+    recipe = models.TextField(blank=False)
+    ingredients = models.TextField(blank=False, default="N/A")
+    image = models.CharField(max_length=255)
+
+    objects = models.Manager()
+
     class Meta:
         verbose_name = "meal plan"
         verbose_name_plural = "meal plans"
