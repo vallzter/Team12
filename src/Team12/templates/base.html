@@ -6,14 +6,17 @@
 </head>
 <body>
     <div class="navbar">
-        <p>NAVBAR</p>
+    <ul>
+        <li><a href="{% url 'Index' %}">Home</a></li>
+        <li><a href="{% url 'Profile' %}">Profile page</a></li>
+    </ul>
     </div>
     <div class="content">
         {% block content %}
         {% endblock %}
     </div>
     <div class="footer">
-        <p>FOOTER</p>
+        <a>Developed by Team12 all rights reserved &copy {% now "Y" %}</span></a>
     </div>
 </body>
 </html>

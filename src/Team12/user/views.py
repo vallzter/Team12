@@ -51,7 +51,6 @@ def profile(request):
 
 
 def remove_user(request):
-    
     '''
     Removes user if he is not superuser (admin) and 
     is logged in.
