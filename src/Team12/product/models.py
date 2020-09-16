@@ -3,10 +3,13 @@ from django.urls import reverse
 
 
 class MealPlan(models.Model):
-
-    name = models.CharField(max_length=50)
-    price = models.IntegerField()
     
+    name = models.CharField(max_length=50)
+    image = models.CharField(max_length=255)
+    price = models.IntegerField()
+    ingredients = models.TextField(blank=False, default="N/A")
+    recipe = models.TextField(blank=False)
+
     class Meta:
         verbose_name = "meal plan"
         verbose_name_plural = "meal plans"
