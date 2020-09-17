@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for product in products %}
-    <h3>Name: {{ product.name}}</h3>
-    <h3>Price: {{ product.price }}</h3>
-    <h3>Recipe: {{ product.recipe }}</h3>
-    <h3>ingredients: {{ product.ingredients }}</h3>
-    <h3>image: {{ product.image }}</h3>
-{% endfor %}
+
+<h1>{{ mealplan.name}}</h1>
+<div style="display: flex;">
+    <div style="flex: 0 60%;">
+        <img src="{{mealplan.image}}" style='max-width: 500px; max-height: 100%;'>
+    </div>
+
+    <div style="flex: 1;">
+        <h2>Price: {{ mealplan.price }}</h2>
+    </div>
+</div>
+  
+<p>
+    <h2>Ingredients</h2> <br>
+    <a>{{ mealplan.ingredients }}</a> <br>
+    <h2>Recipe</h2> <br>
+    <a>{{ mealplan.recipe }}</a> <br>
+</p>
+
 {% endblock %}

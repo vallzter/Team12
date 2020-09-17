@@ -6,7 +6,7 @@ def index(request):
     data = MealPlan.objects.all()
 
     context = {
-        "products": data
+        "products": data,
     }
 
     return render(request, 'products/index.html', context)
@@ -14,4 +14,8 @@ def index(request):
 def detailed_product(request, pk):
     meal_plan = get_object_or_404(MealPlan, pk=pk)
 
-    return HttpResponse(f'You are looking at item: {meal_plan.name}')
+    context  = {
+        "mealplan": meal_plan,
+    }
+
+    return render(request, 'products/mealplan_detailed.html', context)
