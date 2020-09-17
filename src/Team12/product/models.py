@@ -5,7 +5,7 @@ from django.urls import reverse
 class MealPlan(models.Model):
 
     name = models.CharField(max_length=50)
-    price = models.IntegerField()
+    price = models.PositiveIntegerField()
     
     class Meta:
         verbose_name = "meal plan"
