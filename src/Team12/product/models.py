@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 
 class MealPlan(models.Model):
@@ -20,4 +20,5 @@ class MealPlan(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("meal plan_detail", kwargs={"pk": self.pk})
+        return reverse("MealplanDetailed", kwargs={"pk": self.pk})
+        # return reverse_lazy('MealplanDetailed', kwargs={'pk': self.pk}, current_app='products')

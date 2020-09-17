@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for product in products %}
-    <h3>Name: {{ product.name}}</h3>
-    <h3>Price: {{ product.price }}</h3>
-    <h3>Recipe: {{ product.recipe }}</h3>
-    <h3>ingredients: {{ product.ingredients }}</h3>
-    <h3>image: {{ product.image }}</h3>
+    <div style="border: solid black; text-align: center;">
+        <a href="{% url 'products:detailed' product.pk %}">
+            <h3>Name: {{ product.name}}</h3>
+            <h3>Price: {{ product.price }}</h3>
+            {% comment %} <h3>Recipe: {{ product.recipe }}</h3> {% endcomment %}
+            {% comment %} <h3>ingredients: {{ product.ingredients }}</h3> {% endcomment %}
+            <img src="{{product.image}}" style='max-width: 100%; max-height: 100%;'>
+            {% comment %} <h3>image: {{ product.image }}</h3> {% endcomment %}
+        </a>
+    </div>
 {% endfor %}
 {% endblock %}
