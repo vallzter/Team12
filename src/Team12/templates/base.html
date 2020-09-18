@@ -9,6 +9,8 @@
     <ul>
         <li><a href="{% url 'Index' %}">Home</a></li>
         <li><a href="{% url 'Profile' %}">Profile page</a></li>
+        <li><a href="{% url 'products:index' %}">Products</a></li>
+        <li><a href="{% url 'Logout' %}">{% if user.get_username %}Log out{% else %}Log in{% endif %}</a></li>
     </ul>
     </div>
     <div class="content">
