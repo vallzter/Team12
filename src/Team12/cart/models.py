@@ -1,12 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from src.Team12.product.models import Product
+from src.Team12.product.models import MealPlan
 
 
-class Cart_item(models.Model):
+class CartItem(models.Model):
     user = models.ForeignKey(User, null=True, blank=True)
-    product = models.ForeignKey(Product,
+    meal_plan = models.ForeignKey(MealPlan,
                                 null=True,
                                 on_delete=models.SET_NULL)
     quantity = models.IntegerField(default=1)
