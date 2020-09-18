@@ -3,18 +3,10 @@ from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext as _
 
 class MealPlan(models.Model):
-<<<<<<< HEAD
-    
-    name = models.CharField(max_length=50)
-    image = models.CharField(max_length=255)
-    price = models.IntegerField()
-    recipe = models.TextField(blank=False)
-=======
 
     name        = models.CharField(max_length=50)
     price       = models.IntegerField()
     recipe      = models.TextField(blank=False)
->>>>>>> master
     ingredients = models.TextField(blank=False, default="N/A")
     image       = models.CharField(max_length=255)
 
