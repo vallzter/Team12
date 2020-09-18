@@ -18,9 +18,9 @@
         <a>{{ mealplan.recipe }}</a> <br>
     </p>
     <div>
-        <form>
+        <form
             {% if user.is_authenticated %}
-                action="{% url 'cart' %}"  <!-- url ætti að vera 'add_item' hér -->
+                action="{% url 'add_item' %}"
             {% else %}
                 action="#"
             {% endif %}
