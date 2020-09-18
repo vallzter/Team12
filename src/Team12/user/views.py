@@ -24,7 +24,10 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
+            first_name = form.cleaned_data.get('firstname')
+            last_name = form.cleaned_data.get('lastname')
+            email = form.cleaned_data.get('email')
+            user = authenticate(username=username, password=password, first_name=first_name, last_name=last_name, email=email)
             login(request, user)
             return redirect('/user')
 
