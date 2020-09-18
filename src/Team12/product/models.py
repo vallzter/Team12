@@ -7,8 +7,11 @@ class MealPlan(models.Model):
     name = models.CharField(max_length=50)
     image = models.CharField(max_length=255)
     price = models.IntegerField()
-    ingredients = models.TextField(blank=False, default="N/A")
     recipe = models.TextField(blank=False)
+    ingredients = models.TextField(blank=False, default="N/A")
+    image = models.CharField(max_length=255)
+
+    objects = models.Manager()
 
     class Meta:
         verbose_name = "meal plan"
