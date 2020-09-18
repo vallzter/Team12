@@ -1,20 +1,20 @@
 from django.db import models
 from django.urls import reverse, reverse_lazy
-
+from django.utils.translation import gettext as _
 
 class MealPlan(models.Model):
 
-    name = models.CharField(max_length=50)
-    price = models.IntegerField()
-    recipe = models.TextField(blank=False)
+    name        = models.CharField(max_length=50)
+    price       = models.IntegerField()
+    recipe      = models.TextField(blank=False)
     ingredients = models.TextField(blank=False, default="N/A")
-    image = models.CharField(max_length=255)
+    image       = models.CharField(max_length=255)
 
-    objects = models.Manager()
+    objects     = models.Manager()
 
     class Meta:
-        verbose_name = "meal plan"
-        verbose_name_plural = "meal plans"
+        verbose_name = _("meal plan")
+        verbose_name_plural = _("meal plans")
 
     def __str__(self):
         return self.name
