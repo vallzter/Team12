@@ -20,8 +20,8 @@ from user import views
 
 
 urlpatterns = [
-    
     path('', views.index , name='Index'),
     path('admin/', admin.site.urls),
-    path('user/', include('user.urls'))
+    path('user/', include('user.urls')),
+    path('products/', include('product.urls'))
 ]
