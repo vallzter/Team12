@@ -1,26 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h1>{{ mealplan.name}}</h1>
+    <div style="display: flex;">
+        <div style="flex: 0 60%;">
+            <img src="{{mealplan.image}}" style='max-width: 500px; max-height: 100%;'>
+        </div>
 
-<h1>{{ mealplan.name}}</h1>
-<div style="display: flex;">
-    <div style="flex: 0 60%;">
-        <img src="{{mealplan.image}}" style='max-width: 500px; max-height: 100%;'>
+        <div style="flex: 1;">
+            <h2>Price: {{ mealplan.price }}</h2>
+        </div>
     </div>
-
-    <div style="flex: 1;">
-        <h2>Price: {{ mealplan.price }}</h2>
+    
+    <p>
+        <h2>Ingredients</h2> <br>
+        <a>{{ mealplan.ingredients }}</a> <br>
+        <h2>Recipe</h2> <br>
+        <a>{{ mealplan.recipe }}</a> <br>
+    </p>
+    <div>
+        <form>
+            {% if user.is_authenticated %}
+                action="{% url 'cart' %}"  <!-- url ætti að vera 'add_item' hér -->
+            {% else %}
+                action="#"
+            {% endif %}
+            method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="prev" value="{{ prev }}">
+            <button type="submit" name="id" value="{{ prod.id }}">
+                Add to cart
+            </button>
+            <input type="number" name="quantity" value=1 min=1 max=10>
+        </form>
     </div>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Add to cart</button>
-    </form>
-</div>
-  
-<p>
-    <h2>Ingredients</h2> <br>
-    <a>{{ mealplan.ingredients }}</a> <br>
-    <h2>Recipe</h2> <br>
-    <a>{{ mealplan.recipe }}</a> <br>
-</p>
-
 {% endblock %}

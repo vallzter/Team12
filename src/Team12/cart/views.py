@@ -1,13 +1,16 @@
-from django.db.models.functions import datetime
 from django.shortcuts import render
-from django.contrib.auth import get_user_model
-from .models import Cart
-import logging
+from django.contrib.auth.decorators import login_required
+from product.models import MealPlan
+from user.models import Customer
+from cart.models import LineItem, Cart
+
+@login_required
+def index(request):
+    #todo, send context to cart/index.html
+    return render(request, 'cart/index.html')
 
 # Create your views here.
-def add_to_cart(request, **kwargs):
-    user = request.user.username
-    if Cart.objects.filter(web_user=user):
-        if request.method == "POST":
-            cart = Cart(request.user, created=datetime.now())
-            logging("added")
+def add(request):
+    # add item to cart
+    if request.method == "GET":
+        pass #todo, add item to cart

@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext as _
+from django.utils import timezone
+from datetime import datetime
 
 class ShippingAddress(models.Model):
 
@@ -24,8 +26,8 @@ class ShippingAddress(models.Model):
 
 class PaymentMethod(models.Model):
 
-    cardnumber = models.IntegerField(_("Card number"))                 # TODO: Implement encryption
-    CVV        = models.IntegerField(_("Card Verification Value"))     # TODO: Implement encryption
+    cardnumber = models.CharField(_("Card number"), max_length=16)                   # TODO: Implement encryption
+    CVV        = models.CharField(_("Card Verification Value"), max_length=4)        # TODO: Implement encryption
     date       = models.DateField(_("Expiration date"), auto_now=False, auto_now_add=False)
     name       = models.CharField(_("Cardholder name"), max_length=50)
 
@@ -42,7 +44,7 @@ class PaymentMethod(models.Model):
 
 class LineItem(models.Model):
 
-    quantity = models.CharField(_("Quantity"), max_length=50)
+    quantity = models.IntegerField(_("Quantity"))
     mealplan = models.ForeignKey("product.MealPlan", verbose_name=_(""), on_delete=models.CASCADE)
     cart     = models.ForeignKey("Cart", verbose_name=_("Cart"), on_delete=models.CASCADE)
 
@@ -54,7 +56,7 @@ class LineItem(models.Model):
         verbose_name_plural = _("lineitems")
 
     def __str__(self):
-        return self.id
+        return f"Cart#{self.id}"
 
     def get_absolute_url(self):
         return reverse("lineitem_detail", kwargs={"pk": self.pk})
@@ -62,8 +64,9 @@ class LineItem(models.Model):
 
 class Cart(models.Model):
 
-    web_user = models.ForeignKey(get_user_model(), verbose_name="Web User", on_delete=models.CASCADE)
-    created  = models.DateField(_("Ceation date"), auto_now=False, auto_now_add=True)
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
+    web_user = models.ForeignKey(get_user_model(), verbose_name="Web User", on_delete=models.CASCADE, related_name="cart_owner")
+    created  = models.DateField(_("Ceation date"), auto_now_add=True)
 
     class Meta:
         verbose_name = _("Cart")
@@ -75,14 +78,19 @@ class Cart(models.Model):
     def get_absolute_url(self):
         return reverse("Cart_detail", kwargs={"pk": self.pk})
 
+    @classmethod
+    def create(cls, user):
+        return cls(web_user=user, created=timezone.now())
+
 
 class Order(models.Model):
 
-    ordered = models.DateField(_("Order date"), auto_now=False, auto_now_add=True)
-    shipped = models.DateField(_("Shipping date"), auto_now=False, auto_now_add=False)
-    ship_to = models.OneToOneField("ShippingAddress", verbose_name=_("Ship To"), on_delete=models.CASCADE)
-    status  = models.CharField(_("Status"), max_length=20)
-    total   = models.IntegerField(_("Total"))
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
+    ordered  = models.DateField(_("Order date"), auto_now=False, auto_now_add=True)
+    shipped  = models.DateField(_("Shipping date"), auto_now=False, auto_now_add=False)
+    ship_to  = models.OneToOneField("ShippingAddress", verbose_name=_("Ship To"), on_delete=models.CASCADE)
+    status   = models.CharField(_("Status"), max_length=20)
+    total    = models.IntegerField(_("Total"))
 
     class Meta:
         verbose_name = _("Order")
