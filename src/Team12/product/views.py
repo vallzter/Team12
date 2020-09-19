@@ -19,3 +19,13 @@ def detailed_product(request, pk):
     }
 
     return render(request, 'products/mealplan_detailed.html', context)
+
+
+def product_order(request, order):
+    data = MealPlan.objects.order_by(order).all()
+
+    context = {
+        "products": data,
+    }
+
+    return render(request, 'products/index.html', context)
