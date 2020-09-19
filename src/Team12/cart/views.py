@@ -47,7 +47,7 @@ def add(request):
                                 cart=new_cart)
         cart_item.save()
     messages.info(request, f"{prod.name} has been added to your cart.")
-    return render(request, 'cart/index.html')
+    return redirect(index)
 
 def checkout(request):
     return render(request, 'cart/checkout.html')
