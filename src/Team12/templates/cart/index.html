@@ -4,22 +4,23 @@
         {% if cart %}
         <h3>Your cart</h3>
         {% for item in cart_items %}
-        <div>
-
             <div>
-                <img src="{{ item.image }}" style='max-width: 500px; max-height: 100%;'
-                    alt="{{ item.name }}">
+                <div>
+                    <img src="{{ item.image }}" style='max-width: 500px; max-height: 100%;'
+                        alt="{{ item.name }}">
+                </div>
+                <p> {{ item.name }} </p>
+                <p> Quantity: {{ obj.quantity }} </p>
+                <p> {{ item.price}} kr.</p>
+                {% endfor %}
+                <form action="{% url 'checkout' %}" method="POST">
+                    {% csrf_token %}
+                    <button action="checkout" type="submit">
+                        checkout
+                    </button>
+                </form>
             </div>
-            <div>
-                <p>
-                    {{ item.name }}
-                </p>
-            </div>
-            <p>
-                {{ item.price}} kr.
-            </p>
-        </div>
-        {% endfor %}
+        
         {% else %}
         <h3>
             Your cart seems to be empty.<br>

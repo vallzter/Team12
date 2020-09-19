@@ -19,6 +19,8 @@ def index(request):
     for i in cart_items:
         items.append(i.mealplan)
 
+    items = list(dict.fromkeys(items)) #take out duplicates, this is dumb because quantity is lost(cart_items), we need a better fix
+    
     context = {
         'cart': cart,
         'cart_items': items
@@ -47,4 +49,6 @@ def add(request):
     messages.info(request, f"{prod.name} has been added to your cart.")
     return render(request, 'cart/index.html')
 
+def checkout(request):
+    return render(request, 'cart/checkout.html')
         
