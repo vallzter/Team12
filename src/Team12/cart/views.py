@@ -11,20 +11,23 @@ from cart.models import LineItem, Cart
 @login_required
 def index(request):
     #todo, send context to cart/index.html
-    customer = User.objects.get(username=request.user)
-    cart = Cart.objects.get(web_user=customer)
-    cart_items = LineItem.objects.filter(cart=cart) if cart else None
-    items = []
-    for i in cart_items:
-        items.append(i.mealplan)
+    try:
+        customer = User.objects.get(username=request.user)
+        cart = Cart.objects.get(web_user=customer)
+        cart_items = LineItem.objects.filter(cart=cart) if cart else None
+        items = []
+        for i in cart_items:
+            items.append(i.mealplan)
 
-    items = list(dict.fromkeys(items)) #take out duplicates, this is dumb because quantity is lost(cart_items), we need a better fix
-    
-    context = {
-        'cart': cart,
-        'cart_items': items
-    }
-    return render(request, 'cart/index.html', context=context)
+        items = list(dict.fromkeys(items)) #take out duplicates, this is dumb because quantity is lost(cart_items), we need a better fix
+        
+        context = {
+            'cart': cart,
+            'cart_items': items
+        }
+        return render(request, 'cart/index.html', context=context)
+    except:
+        return render(request, 'cart/index.html')
 
 def add(request):
     # add item to cart
