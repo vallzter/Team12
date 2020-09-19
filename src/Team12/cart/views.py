@@ -12,8 +12,8 @@ from cart.models import LineItem, Cart
 def index(request):
     #todo, send context to cart/index.html
     customer = User.objects.get(username=request.user)
-    cart = get_object_or_404(Cart, web_user=customer)
-    cart_items = LineItem.objects.filter(cart=cart)
+    cart = Cart.objects.get(web_user=customer)
+    cart_items = LineItem.objects.filter(cart=cart) if cart else None
     items = []
     for i in cart_items:
         items.append(i.mealplan)
@@ -34,11 +34,11 @@ def add(request):
     quantity = request.POST.get('quantity') or 1
     prod = MealPlan.objects.get(pk=prod_id)
     customer = User.objects.get(username=request.user)
-    user_cart = get_object_or_404(Cart,web_user=customer)
-    if user_cart:
+    try:
+        user_cart = Cart.objects.get(web_user=customer)
         cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
         cart_item.save()
-    else: # create one
+    except:
         new_cart = Cart(web_user=customer, created=timezone.now())
         new_cart.save()
         cart_item = LineItem(quantity=quantity,
