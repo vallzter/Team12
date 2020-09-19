@@ -10,7 +10,7 @@
                         alt="{{ item.name }}">
                 </div>
                 <p> {{ item.name }} </p>
-                <p> Quantity: {{ obj.quantity }} </p>
+                <p> Quantity: {{ item.quantity }} </p>
                 <p> {{ item.price}} kr.</p>
                 {% endfor %}
                 <form action="{% url 'checkout' %}" method="POST">
