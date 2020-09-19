@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from product.models import MealPlan
 from django.contrib.auth.models import User
@@ -11,8 +12,7 @@ from cart.models import LineItem, Cart
 def index(request):
     #todo, send context to cart/index.html
     customer = User.objects.get(username=request.user)
-    cart = Cart.objects.get(web_user=customer)
-    print("cart: ", cart)
+    cart = get_object_or_404(Cart, web_user=customer)
     cart_items = LineItem.objects.filter(cart=cart)
     items = []
     for i in cart_items:
@@ -34,7 +34,7 @@ def add(request):
     quantity = request.POST.get('quantity') or 1
     prod = MealPlan.objects.get(pk=prod_id)
     customer = User.objects.get(username=request.user)
-    user_cart = Cart.objects.get(web_user=customer)
+    user_cart = get_object_or_404(Cart,web_user=customer)
     if user_cart:
         cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
         cart_item.save()
