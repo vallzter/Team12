@@ -64,6 +64,7 @@ class LineItem(models.Model):
 
 class Cart(models.Model):
 
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
     web_user = models.ForeignKey(get_user_model(), verbose_name="Web User", on_delete=models.CASCADE, related_name="cart_owner")
     created  = models.DateField(_("Ceation date"), auto_now_add=True)
 
@@ -84,11 +85,12 @@ class Cart(models.Model):
 
 class Order(models.Model):
 
-    ordered = models.DateField(_("Order date"), auto_now=False, auto_now_add=True)
-    shipped = models.DateField(_("Shipping date"), auto_now=False, auto_now_add=False)
-    ship_to = models.OneToOneField("ShippingAddress", verbose_name=_("Ship To"), on_delete=models.CASCADE)
-    status  = models.CharField(_("Status"), max_length=20)
-    total   = models.IntegerField(_("Total"))
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
+    ordered  = models.DateField(_("Order date"), auto_now=False, auto_now_add=True)
+    shipped  = models.DateField(_("Shipping date"), auto_now=False, auto_now_add=False)
+    ship_to  = models.OneToOneField("ShippingAddress", verbose_name=_("Ship To"), on_delete=models.CASCADE)
+    status   = models.CharField(_("Status"), max_length=20)
+    total    = models.IntegerField(_("Total"))
 
     class Meta:
         verbose_name = _("Order")
