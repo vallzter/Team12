@@ -7,16 +7,16 @@
         <div>
 
             <div>
-                <img src="{{mealplan.image}}" style='max-width: 500px; max-height: 100%;'>
-                    alt="{{ mealplan.name }}">
+                <img src="{{ item.image }}" style='max-width: 500px; max-height: 100%;'
+                    alt="{{ item.name }}">
             </div>
             <div>
                 <p>
-                    {{ mealplan.name }}
+                    {{ item.name }}
                 </p>
             </div>
             <p>
-                {{ mealplan.price}} kr.
+                {{ item.price}} kr.
             </p>
         </div>
         {% endfor %}

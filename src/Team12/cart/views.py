@@ -3,37 +3,46 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.contrib import messages
 from product.models import MealPlan
-from user.models import Customer
+from django.contrib.auth.models import User
+from django.utils import timezone
 from cart.models import LineItem, Cart
 
 @login_required
 def index(request):
+    print("IM HERE")
     #todo, send context to cart/index.html
-    return render(request, 'cart/index.html')
+    customer = User.objects.get(username=request.user)
+    cart = Cart.objects.get(web_user=customer)
+    print("cart: ", cart)
+    cart_items = LineItem.objects.filter(cart=cart)
+    items = []
+    for i in cart_items:
+        items.append(i.mealplan)
 
-# Create your views here.
+    context = {
+        'cart': cart,
+        'cart_items': items
+    }
+    return render(request, 'cart/index.html', context=context)
+
 def add(request):
     # add item to cart
-    print("im here")
     if request.method == "GET":
         raise Http404()
     prod_id = request.POST.get('id')
-    print(prod_id)
-    print("im here")
     quantity = request.POST.get('quantity') or 1
     prod = MealPlan.objects.get(pk=prod_id)
-    customer = request.user.customer
-    user_cart = Cart.objects.get(web_user=user)
+    customer = User.objects.get(username=request.user)
+    user_cart = Cart.objects.get(web_user=customer)
     if user_cart:
-        cart_item = LineItem(quantity=quantity,product=prod,cart=user_cart)
+        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
         cart_item.save()
     else: # create one
-        new_cart = Cart(user=request.user,
-                        status='Active')
+        new_cart = Cart(web_user=customer, created=timezone.now())
         new_cart.save()
         cart_item = LineItem(quantity=quantity,
-                              product=prod,
-                              cart=new_cart)
+                                mealplan=prod,
+                                cart=new_cart)
         cart_item.save()
     messages.info(request, f"{prod.name} has been added to your cart.")
     return render(request, 'cart/index.html')
