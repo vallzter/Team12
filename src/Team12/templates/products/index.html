@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<button type="button"> <a class="nav-link" href="{% url 'products:product_order' 'price' %}">Sort by Higher Price</a> </button>
+<button type="button"> <a class="nav-link" href="{% url 'products:product_order' '-price' %}">Sort by Higher Price</a> </button>
+
+
 {% for product in products %}
     <div style="border: solid black; text-align: center;">
         <a href="{% url 'products:detailed' product.pk %}">
