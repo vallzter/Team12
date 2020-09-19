@@ -9,7 +9,6 @@ from cart.models import LineItem, Cart
 
 @login_required
 def index(request):
-    print("IM HERE")
     #todo, send context to cart/index.html
     customer = User.objects.get(username=request.user)
     cart = Cart.objects.get(web_user=customer)
