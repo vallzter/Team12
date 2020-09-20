@@ -72,9 +72,11 @@ Open the shell where `get-pip.py` was downloaded.
 ```
 
 ## Pictures
-<img src="readme_images/homepage.png" width="140"/>
-<img src="readme_images/profilepage.png" width="140"/>
-<img src="readme_images/profilepage.png" width="140"/>
-<img src="readme_images/productpage.png" width="140"/>
-<img src="readme_images/productdetailed.png" width="140"/>
-<img src="readme_images/cartpage.png" width="140"/>
+<div style="display:flex;">
+<img src="readme_images/homepage.png" width="160"/>
+<img src="readme_images/profilepage.png" width="160"/>
+<img src="readme_images/profilepage.png" width="160"/>
+<img src="readme_images/productpage.png" width="160"/>
+<img src="readme_images/productdetailed.png" width="160"/>
+<img src="readme_images/cartpage.png" width="160"/>
+</div>
