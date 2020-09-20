@@ -71,10 +71,19 @@ Open the shell where `get-pip.py` was downloaded.
 > python manage.py test
 ```
 
+## Testing
 
-### Design Patterns
+Regarding our tests, we have tried relentlessly in the past two sprints to get our test code work as should. However, our database raises an error when trying to test functionality regarding it, saying that certain permission is needed. As said, we have tried with all our might to give us somehow this certain permission or bypass this in some way, but without any success. <br />
+<br />
+Our project is at that stage that our only tests that we can implement is regarding the database, e.g. that the user is created correctly, products are fetched in the correct manner, data is manipulated the right way etc. <br />
+<br />
+We are currently using Elephantsql and Postgres but we are strongly considering changing services for next sprint, as this combo is causing us severe headache. Also, as we are using the free tier, allowing only 5 connections which complicates the matter even more. <br />
+<br />
+We have installed the package, coverage, which at the moment reports 39% of the code is tested.
 
-We utilized 6 design patterns in sprint 2 which are listed below.
+## Design Patterns
+
+We utilized 6 design patterns in sprint 2 which are listed below: <br />
 The registery was utilized with the meal package selection.
 Ingredients were implemented as a Value Object.
 The shopping Cart was a plugin design.
