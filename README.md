@@ -28,7 +28,7 @@ We decided on building the website with Django as framework connected to a Postg
 ---
 
 ### Sprint 2
-We desided that we wanted to implement two critical components to the website, products and online shopping. We used the restful API architecture to display the products. But making the online shopping was more diffcult than we thought, 6 modelst needed to be implemented for the database. But we managed to create the views and get it up and running.
+We decided on wanting to implement two critical components to the website; viewing of products and online shopping. We used the RESTful API architecture to display the products. But making the online shopping was more diffcult than we thought, 6 models needed to be implemented for the database. But we managed to create the views and get it up and running.
 
 ---
 ## Software architecture
