@@ -29,3 +29,12 @@ def product_order(request, order):
     }
 
     return render(request, 'products/index.html', context)
+
+def filter_price(request, filter, filter2):
+    data = MealPlan.objects.filter(price__gte = filter, price__lte = filter2)
+
+    context = {
+        "products": data,
+    }
+
+    return render(request, 'products/index.html', context)
