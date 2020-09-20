@@ -11,7 +11,7 @@
                 </div>
                 <p> {{ item.mealplan.name }} </p>
                 <p> Quantity: {{ item.quantity}} </p>
-                <p> {{ item.mealplan.price}} kr.</p>
+                <p> {{ item.get_price}} kr.</p>
                 {% endfor %}
                 <form action="{% url 'checkout' %}" method="POST">
                     {% csrf_token %}
