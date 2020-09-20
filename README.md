@@ -71,6 +71,20 @@ Open the shell where `get-pip.py` was downloaded.
 > python manage.py test
 ```
 
+
+### Design Patterns
+
+We utilized 6 design patterns in sprint 2 which are listed below.
+The registery was utilized with the meal package selection.
+Ingredients were implemented as a Value Object.
+The shopping Cart was a plugin design.
+The Delivery Time was a Service Stub.
+Delivery Place was an example of Gateway.
+The Shop Sorting system was a Seperate interface.
+Adding packages as administrator was an example of the mapper.
+Deleting packages was likewise an example of the same design principle.
+
+
 ## Pictures
 <table>
     <tr>
