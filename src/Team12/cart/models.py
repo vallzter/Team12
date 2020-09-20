@@ -49,7 +49,7 @@ class LineItem(models.Model):
     cart     = models.ForeignKey("Cart", verbose_name=_("Cart"), on_delete=models.CASCADE)
 
     def get_price(self):
-        return self.mealplan.price * self.quantity
+        return int(self.mealplan.price * self.quantity)
 
     class Meta:
         verbose_name = _("lineitem")
@@ -77,6 +77,20 @@ class Cart(models.Model):
 
     def get_absolute_url(self):
         return reverse("Cart_detail", kwargs={"pk": self.pk})
+
+    def contains(self, product):
+        all_items = LineItem.objects.filter(cart=self)
+        if all_items.filter(mealplan=product):
+            return 1
+        else:
+            return None
+    
+    def total_price(self):
+        items = LineItem.objects.filter(cart=self)
+        summa = 0
+        for i in items:
+            summa += i.get_price()
+        return summa
 
     @classmethod
     def create(cls, user):
