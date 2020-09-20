@@ -18,16 +18,15 @@
         <a>{{ mealplan.recipe }}</a> <br>
     </p>
     <div>
-        <form>
+        <form
             {% if user.is_authenticated %}
-                action="{% url 'cart' %}"  <!-- url ætti að vera 'add_item' hér -->
+                action="{% url 'add_item' %}"
             {% else %}
                 action="#"
             {% endif %}
             method="POST">
             {% csrf_token %}
-            <input type="hidden" name="prev" value="{{ prev }}">
-            <button type="submit" name="id" value="{{ prod.id }}">
+            <button type="submit" name="id" value={{ mealplan.id }}>
                 Add to cart
             </button>
             <input type="number" name="quantity" value=1 min=1 max=10>
