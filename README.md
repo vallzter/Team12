@@ -72,7 +72,7 @@ Open the shell where `get-pip.py` was downloaded.
 ```
 
 ## Pictures
-<div style="display:flex;">
+<div style="display:flex-container;">
     <div>
         <p>Homepage</p>
         <img src="readme_images/homepage.png" width="200"/>
