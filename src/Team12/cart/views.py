@@ -6,7 +6,8 @@ from django.contrib import messages
 from product.models import MealPlan
 from django.contrib.auth.models import User
 from django.utils import timezone
-from cart.models import LineItem, Cart
+from user.models import Customer
+from cart.models import LineItem, Cart, Order
 
 @login_required
 def index(request):
@@ -36,16 +37,16 @@ def add(request):
         user_cart = Cart.objects.get(web_user=customer)
     except:
         pass
-    if user_cart:
-        if user_cart.contains(prod):
+    if user_cart:#work with excisting cart
+        if user_cart.contains(prod):#add to quantity
             all_items = LineItem.objects.filter(cart=user_cart)
             meal = all_items.filter(mealplan=prod).get(mealplan=prod)
             meal.quantity += int(quantity)
             meal.save()
-        else:
+        else:#add item
             cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
             cart_item.save()
-    else:
+    else:#make a new one
         new_cart = Cart(web_user=customer, created=timezone.now())
         new_cart.save()
         cart_item = LineItem(quantity=quantity,mealplan=prod,cart=new_cart)
@@ -53,5 +54,14 @@ def add(request):
     return redirect(index)
 
 def checkout(request):
+    #time = request.GET.get('time')
+    #location = request.GET.get('location')
+    #customer = User.objects.get(username=request.user)
+    #customerTest = Customer.objects.get(pk=1)
+    #ordered = timezone.now()
+    #cart = Cart.objects.get(web_user=customer)
+    #total = cart.total_price
+    #new_order = Order(customer=customerTest, ordered=ordered, shipped=time, ship_to=location,status="On Hold", total=total)
+    #new_order.save()
     return render(request, 'cart/checkout.html')
         
