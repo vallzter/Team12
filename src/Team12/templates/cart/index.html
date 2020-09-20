@@ -13,6 +13,7 @@
                 <p> Quantity: {{ item.quantity}} </p>
                 <p> {{ item.get_price}} kr.</p>
                 {% endfor %}
+                <p>Total price: {{ cart.total_price }}</p>
                 <form action="{% url 'checkout' %}" method="POST">
                     {% csrf_token %}
                     <button action="checkout" type="submit">
