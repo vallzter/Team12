@@ -72,25 +72,29 @@ Open the shell where `get-pip.py` was downloaded.
 ```
 
 ## Pictures
-<div style="display:flex; flex: wrap;">
-    <div>
-        <p>Homepage</p>
-        <img src="readme_images/homepage.png" width="200"/>
-    </div>
-    <div>
-        <p>Profile Page</p>
-        <img src="readme_images/profilepage.png" width="200"/>
-    </div>
-    <div>
-        <p>Product Page</p>
-        <img src="readme_images/productpage.png" width="200"/>
-    </div>
-    <div>
-        <p>Product Detailed</p>
-        <img src="readme_images/productdetailed.png" width="200"/>
-    </div>
-    <div>
-        <p>Cart Page</p>
-        <img src="readme_images/cartpage.png" width="200"/>
-    </div>
-</div>
+<table>
+    <tr>
+        <th>
+            Homepage
+            <img src="readme_images/homepage.png" width="200"/>
+        </th>
+        <th>
+            Profile Page
+            <img src="readme_images/profilepage.png" width="200"/>
+        </th>
+        <th>
+            Product Page
+            <img src="readme_images/productpage.png" width="200"/>
+        </th>
+    </tr>
+    <tr> 
+        <th>
+            Product Detailed
+            <img src="readme_images/productdetailed.png" width="200"/>
+        </th>
+        <th>
+            Cart Page
+            <img src="readme_images/cartpage.png" width="200"/>
+        </th>
+    </tr>
+</table>
