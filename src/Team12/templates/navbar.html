@@ -6,19 +6,23 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'Profile' %}">Profile</a>
             </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'products:index' %}">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'cart' %}">Cart</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'Logout' %}">{% if user.get_username %}Log out{% else %}Log in
                 {% endif %}</a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
