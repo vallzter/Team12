@@ -78,6 +78,13 @@ class Cart(models.Model):
     def get_absolute_url(self):
         return reverse("Cart_detail", kwargs={"pk": self.pk})
 
+    def contains(self, product):
+        all_items = LineItem.objects.filter(cart=self)
+        if all_items.filter(mealplan=product):
+            return 1
+        else:
+            return None
+
     @classmethod
     def create(cls, user):
         return cls(web_user=user, created=timezone.now())

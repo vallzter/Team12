@@ -15,15 +15,9 @@ def index(request):
         customer = User.objects.get(username=request.user)
         cart = Cart.objects.get(web_user=customer)
         cart_items = LineItem.objects.filter(cart=cart) if cart else None
-        items = []
-        for i in cart_items:
-            items.append(i.mealplan)
-
-        items = list(dict.fromkeys(items)) #take out duplicates, this is dumb because quantity is lost(cart_items), we need a better fix
-        
         context = {
             'cart': cart,
-            'cart_items': items
+            'cart_items': cart_items
         }
         return render(request, 'cart/index.html', context=context)
     except:
@@ -37,18 +31,25 @@ def add(request):
     quantity = request.POST.get('quantity') or 1
     prod = MealPlan.objects.get(pk=prod_id)
     customer = User.objects.get(username=request.user)
+    user_cart = 0
     try:
         user_cart = Cart.objects.get(web_user=customer)
-        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
-        cart_item.save()
     except:
+        pass
+    if user_cart:
+        if user_cart.contains(prod):
+            all_items = LineItem.objects.filter(cart=user_cart)
+            meal = all_items.filter(mealplan=prod).get(mealplan=prod)
+            meal.quantity += int(quantity)
+            meal.save()
+        else:
+            cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
+            cart_item.save()
+    else:
         new_cart = Cart(web_user=customer, created=timezone.now())
         new_cart.save()
-        cart_item = LineItem(quantity=quantity,
-                                mealplan=prod,
-                                cart=new_cart)
+        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=new_cart)
         cart_item.save()
-    messages.info(request, f"{prod.name} has been added to your cart.")
     return redirect(index)
 
 def checkout(request):

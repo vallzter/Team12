@@ -6,12 +6,12 @@
         {% for item in cart_items %}
             <div>
                 <div>
-                    <img src="{{ item.image }}" style='max-width: 500px; max-height: 100%;'
-                        alt="{{ item.name }}">
+                    <img src="{{ item.mealplan.image }}" style='max-width: 500px; max-height: 100%;'
+                        alt="{{ item.mealplan.name }}">
                 </div>
-                <p> {{ item.name }} </p>
-                <p> Quantity: {{ item.quantity }} </p>
-                <p> {{ item.price}} kr.</p>
+                <p> {{ item.mealplan.name }} </p>
+                <p> Quantity: {{ item.quantity}} </p>
+                <p> {{ item.mealplan.price}} kr.</p>
                 {% endfor %}
                 <form action="{% url 'checkout' %}" method="POST">
                     {% csrf_token %}
