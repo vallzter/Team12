@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+<button type="button"> <a class="nav-link" href="{% url 'products:product_order' '-price' %}">Sort by Highest Price</a> </button>
+<button type="button"> <a class="nav-link" href="{% url 'products:product_order' 'price' %}">Sort by Lowest Price</a> </button>
+<br><br>
+<a> Price Ranges </a><br>
+<button type="button"> <a class="nav-link" href="{% url 'products:filter_price' filter=0 filter2=4999 %}">0.Kr - 4.999Kr</a> </button>
+<button type="button"> <a class="nav-link" href="{% url 'products:filter_price' filter=5000 filter2=9999 %}">5.000Kr - 9.999Kr</a> </button>
+<br>
+<button type="button"> <a class="nav-link" href="{% url 'products:filter_price' filter=10000 filter2=14999 %}">10.000Kr - 14.999Kr</a> </button>
+<button type="button"> <a class="nav-link" href="{% url 'products:filter_price' filter=15000 filter2=19999 %}">15.000Kr - 19.999Kr</a> </button>
+<br>
+<button type="button"> <a class="nav-link" href="{% url 'products:filter_price' filter=20000 filter2=24999 %}">20.000Kr - 24.999Kr</a> </button>
+<button type="button"> <a class="nav-link" href="{% url 'products:filter_price' filter=25000 filter2=29999 %}">25.000Kr - 29.999Kr</a> </button>
+
+
+
+
 {% for product in products %}
     <div style="border: solid black; text-align: center;">
         <a href="{% url 'products:detailed' product.pk %}">

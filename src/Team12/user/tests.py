@@ -8,11 +8,17 @@ from user import views
 class FrontPageTest(SimpleTestCase):
     
     
-    DATABASES = 'default'
+    #DATABASES = 'default'
     #Experimental test
     def test_homepage(self): #This should return as false until we have a homepage
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+
+    def test_product_site(self):
+        response = self.client.get('/products')
+        self.assertEqual(response.status_code, 301)
+        response = self.client.get('/cart')
+        self.assertEqual(response.status_code, 301)
 
     
     #def test_login_and_logout(self):
