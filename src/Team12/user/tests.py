@@ -1,11 +1,16 @@
 from django.test import TestCase, SimpleTestCase, Client
+
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.forms import UserCreationForm 
 from user import views
 
 # Create your tests here.
 
+import sys
 
 
-class FrontPageTest(SimpleTestCase):
+
+class FrontPageTest(TestCase):
     
     
     #DATABASES = 'default'
@@ -13,6 +18,7 @@ class FrontPageTest(SimpleTestCase):
     def test_homepage(self): #This should return as false until we have a homepage
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed("user_page.html")
 
     def test_product_site(self):
         response = self.client.get('/products')
@@ -20,6 +26,9 @@ class FrontPageTest(SimpleTestCase):
         response = self.client.get('/cart')
         self.assertEqual(response.status_code, 301)
 
+    def test_register(self):
+        form = UserCreationForm()
+        self.assertIsNotNone(form)
     
     #def test_login_and_logout(self):
         #response = self.client.get('/user/')
