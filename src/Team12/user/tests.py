@@ -3,14 +3,14 @@ from django.test import TestCase, SimpleTestCase, Client
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.forms import UserCreationForm 
 from user import views
-
+from cart import views
 # Create your tests here.
 
 import sys
 
 
 
-class FrontPageTest(TestCase):
+class FrontPageTest(SimpleTestCase):
     
     
     #DATABASES = 'default'
@@ -19,6 +19,9 @@ class FrontPageTest(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed("user_page.html")
+        response = self.client.get('/products')
+        self.assertEqual(response.status_code, 301)
+        self.assertTemplateUsed("profile.html")
 
     def test_product_site(self):
         response = self.client.get('/products')
