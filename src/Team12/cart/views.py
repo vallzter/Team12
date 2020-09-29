@@ -24,7 +24,8 @@ def index(request):
     except:
         return render(request, 'cart/index.html')
 
-def add(request):
+@login_required
+def add(request): 
     # add item to cart
     if request.method == "GET":
         raise Http404()
@@ -51,6 +52,67 @@ def add(request):
         new_cart.save()
         cart_item = LineItem(quantity=quantity,mealplan=prod,cart=new_cart)
         cart_item.save()
+    return redirect(index)
+
+@login_required
+def add_quantity(request):# Testaðu þetta Fannar
+    if request.method == "GET":
+        raise Http404()
+    customer = User.objects.get(username=request.user)
+    prod_id = request.POST.get('id')
+    user_cart = 0
+    try:
+        user_cart = Cart.objects.get(web_user=customer)
+    except:
+        pass
+    if user_cart:
+        prod = MealPlan.objects.get(pk=prod_id)
+        all_items = LineItem.objects.filter(cart=user_cart)
+        meal = all_items.filter(mealplan=prod).get(mealplan=prod)
+        meal.quantity += 1
+        meal.save()
+    return redirect(index)
+
+@login_required
+def dec_quantity(request):# Testaðu þetta Fannar
+    if request.method == "GET":
+        raise Http404()
+    customer = User.objects.get(username=request.user)
+    prod_id = request.POST.get('id')
+    user_cart = 0
+    try:
+        user_cart = Cart.objects.get(web_user=customer)
+    except:
+        pass
+    if user_cart:
+        prod = MealPlan.objects.get(pk=prod_id)
+        all_items = LineItem.objects.filter(cart=user_cart)
+        meal = all_items.filter(mealplan=prod).get(mealplan=prod)
+        if meal.quantity > 1:
+            meal.quantity -= 1
+            meal.save()
+        else:
+            messages.error(request, f"You can't have less than one of this item.")
+            messages.error(request, f"Please delete it if you want to remove it.")
+    return redirect(index)
+
+@login_required
+def delete(request):
+    if request.method == "GET":
+        raise Http404()
+    customer = User.objects.get(username=request.user)
+    prod_id = request.POST.get('id')
+    user_cart = 0
+    try:
+        user_cart = Cart.objects.get(web_user=customer)
+    except:
+        pass
+    if user_cart:
+        # delete item from cart
+        prod = MealPlan.objects.get(pk=prod_id)
+        all_items = LineItem.objects.filter(cart=user_cart)
+        meal = all_items.filter(mealplan=prod).get(mealplan=prod)
+        meal.delete()
     return redirect(index)
 
 def checkout(request):
