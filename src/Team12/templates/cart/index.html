@@ -16,7 +16,7 @@
                 <p> {{ item.mealplan.name }} </p>
                 <p> Quantity: {{ item.quantity}} </p>
                 <p> {{ item.get_price}} kr.</p>
-                {% endfor %}
+                
                 <p>Total price: {{ cart.total_price }}</p>
                 <form action="{% url 'edit_quantity' %}" method="post">
                     {% csrf_token %}
@@ -30,7 +30,7 @@
                     </button>
                 </form>
             </div>
-        
+        {% endfor %}
         {% else %}
         <h3>
             Your cart seems to be empty.<br>
