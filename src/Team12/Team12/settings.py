@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,8 +76,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Team12.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -87,11 +89,19 @@ DATABASES = {
         'PASSWORD': 'gplQARxZ6HiDk74iSGngnXqCzVfWo8hm',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432',
-        'TEST': {'NAME': 'db_test'},
         'CONN_MAX_AGE': 0
     }
 }
 
+
+
+#if 'test' in sys.argv:
+    #DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': 'mvulvvrk',
+    #}
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
