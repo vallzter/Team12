@@ -16,10 +16,6 @@
                 <p> {{ item.mealplan.name }} </p>
                 <p> Quantity: {{ item.quantity}} </p>
                 <p> {{ item.get_price}} kr.</p>
-<<<<<<< HEAD
-                
-=======
->>>>>>> master
                 <p>Total price: {{ cart.total_price }}</p>
                 <form action="{% url 'edit_quantity' %}" method="post">
                     {% csrf_token %}
