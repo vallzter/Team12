@@ -2,6 +2,10 @@
 {% block content %}
 
 Welcome to your profile, {{user.get_username}}!
+<form method="post" action="{% url 'editProfileRedirect' %}">
+    {% csrf_token %}
+    <button type="submit">Edit Profile</button>
+</form>
 <form method="post" action="{% url 'Logout' %}">
     {% csrf_token %}
     <button type="submit">Logout</button>

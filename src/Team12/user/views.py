@@ -52,6 +52,13 @@ def profile(request):
     '''
     return render(request, 'user/profile.html')
 
+@login_required
+def editProfileRedirect(request):
+    return render(request, 'user/edit.html')
+
+@login_required
+def editProfile(request):
+    return render(request, 'user/profile.html')
 
 def remove_user(request):
     '''
