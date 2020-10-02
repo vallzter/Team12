@@ -64,7 +64,7 @@ class LineItem(models.Model):
 
 class Cart(models.Model):
 
-    #customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
     web_user = models.ForeignKey(get_user_model(), verbose_name="Web User", on_delete=models.CASCADE, related_name="cart_owner")
     created  = models.DateField(_("Ceation date"), auto_now_add=True)
 
