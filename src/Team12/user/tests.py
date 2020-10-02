@@ -10,11 +10,8 @@ import sys
 
 
 
-class FrontPageTest(SimpleTestCase):
+class FrontPageTest(TestCase):
     
-    
-    #DATABASES = 'default'
-    #Experimental test
     def test_homepage(self): #This should return as false until we have a homepage
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
@@ -22,6 +19,7 @@ class FrontPageTest(SimpleTestCase):
         response = self.client.get('/products')
         self.assertEqual(response.status_code, 301)
         self.assertTemplateUsed("profile.html")
+        c = Client()
 
     def test_product_site(self):
         response = self.client.get('/products')
