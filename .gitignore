@@ -4,9 +4,11 @@ src/env/
 *.log
 *.pot
 *.pyc
-__pycache__
+__pycache__/
+*/migrations/
 db.sqlite3
 media
+Team12/settings.py
 
 # If you are using PyCharm # 
 .idea/
