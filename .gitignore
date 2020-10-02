@@ -9,6 +9,9 @@ __pycache__/
 db.sqlite3
 media
 Team12/settings.py
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 
 # If you are using PyCharm # 
 .idea/
