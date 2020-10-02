@@ -84,12 +84,11 @@ WSGI_APPLICATION = 'Team12.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mvulvvrk',
-        'USER': 'mvulvvrk',
-        'PASSWORD': 'gplQARxZ6HiDk74iSGngnXqCzVfWo8hm',
-        'HOST': 'balarama.db.elephantsql.com',
+        'NAME': 'postgres',
+        'USER':'elmar',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
         'PORT': '5432',
-        'CONN_MAX_AGE': 0
     }
 }
 
