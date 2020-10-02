@@ -48,7 +48,8 @@ def add(request):
             cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
             cart_item.save()
     else:#make a new one
-        new_cart = Cart(web_user=customer, created=timezone.now())
+        user_customer = Customer.objects.get(web_user=customer)
+        new_cart = Cart(customer=user_customer,web_user=customer, created=timezone.now())
         new_cart.save()
         cart_item = LineItem(quantity=quantity,mealplan=prod,cart=new_cart)
         cart_item.save()

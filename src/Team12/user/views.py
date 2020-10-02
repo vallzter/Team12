@@ -6,8 +6,11 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from django.contrib import messages
+from cart.models import PaymentMethod, ShippingAddress
+from user.models import Customer
 
 
 def register(request):
@@ -58,6 +61,27 @@ def editProfileRedirect(request):
 
 @login_required
 def editProfile(request):
+    if request.method == "POST":
+        fname = request.POST.get('fname')
+        lname = request.POST.get('lname')
+        email = request.POST.get('email')
+        country = request.POST.get('country')
+        region = request.POST.get('region')
+        city = request.POST.get('city')
+        info = request.POST.get('info')
+        address = request.POST.get('address')
+        phone = request.POST.get('phone')
+        card_no = request.POST.get('card')
+        cvv = request.POST.get('cvv')
+        date = request.POST.get('date')
+        cardholder = request.POST.get('name')
+        user = User.objects.get(username=request.user)
+        payment = PaymentMethod(cardnumber=card_no, CVV=cvv, date=date, name=cardholder)
+        payment.save()
+        shipping = ShippingAddress(country=country, region=region, city=city, street=address, info=info)
+        shipping.save()
+        customer = Customer(web_user=user, address=shipping, payment=payment, first_name=fname, last_name=lname, email=email, phone=int(phone))
+        customer.save()
     return render(request, 'user/profile.html')
 
 def remove_user(request):
