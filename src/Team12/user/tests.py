@@ -24,7 +24,7 @@ class FrontPageTest(TestCase):
 
     def test_profile(self):
         response = self.client.post('/user/login/', **self.credentials)  
-        self.assertEqual(response.status_code, 200)  
+        self.assertEqual(response.status_code, 200)
         response = self.client.get('profile/')
         #self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed("profile.html")
@@ -32,6 +32,18 @@ class FrontPageTest(TestCase):
       #  self.assertEqual(response.status_code, 200)
 
 
+class removeUser(TestCase):
+    def setUp(self):
+        self.credentials = {
+            'username': 'testuser',
+            'password': 'secret321'}
+        User.objects.create_user(**self.credentials)
+
+    def test_remove_user(self):
+        response = self.client.post('/user/login/', **self.credentials)  
+        response = self.client.post('/user/remove/')  
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response,"user/user_remove.html")
 
 
 class RegisterTest(TestCase):
