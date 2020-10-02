@@ -1,8 +1,8 @@
 from django.test import TestCase, SimpleTestCase, Client
-
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.forms import UserCreationForm 
-from user import views
+from django.contrib.auth.models import User
+from user import views, models
 from cart import views
 # Create your tests here.
 
@@ -11,36 +11,70 @@ import sys
 
 
 class FrontPageTest(TestCase):
-    
-    def test_homepage(self): #This should return as false until we have a homepage
+    def setUp(self):
+        self.credentials = {
+            'username': 'testuser',
+            'password': 'secret321'}
+        User.objects.create_user(**self.credentials)
+
+    def testLogin(self):
+        response = self.client.post('/user/login/', **self.credentials)  
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed("user_page.html")
-        response = self.client.get('/products')
-        self.assertEqual(response.status_code, 301)
-        self.assertTemplateUsed("profile.html")
-        c = Client()
 
-    def test_product_site(self):
-        response = self.client.get('/products')
-        self.assertEqual(response.status_code, 301)
-        response = self.client.get('/cart')
-        self.assertEqual(response.status_code, 301)
+    def test_profile(self):
+        response = self.client.post('/user/login/', **self.credentials)  
+        self.assertEqual(response.status_code, 200)  
+        response = self.client.get('profile/')
+        #self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed("profile.html")
+        #response = self.client.get('/user/edit/')
+      #  self.assertEqual(response.status_code, 200)
+
+
+
+
+class RegisterTest(TestCase):
+    
+
+    def setUp(self):
+        form = UserCreationForm()
+        #form.cleaned_data.username = "wolfram"
+        #self.assertIsNotNone(form)
+        #form.save()
+        #username = form.cleaned_data.get('username') 
+        #password = form.cleaned_data.get('password1') 
+        #first_name = form.cleaned_data.get('firstname') 
+        #last_name = form.cleaned_data.get('lastname') 
+        #email = form.cleaned_data.get('email')
 
     def test_register(self):
-        form = UserCreationForm()
-        self.assertIsNotNone(form)
-    
-    #def test_login_and_logout(self):
-        #response = self.client.get('/user/')
-        # asserts if the get is successful
-        #self.assertEquals(response.status_code, 200)
-        #self.assertTrue("Login" in str(response.content))
+        pass
+
+    #def test_homepage(self): #This should return as false until we have a homepage
+        #response = self.client.get('/')
+        #self.assertEqual(response.status_code, 200)
+        #self.assertTemplateUsed("user_page.html")
+        #response = self.client.get('/products')
+        #self.assertEqual(response.status_code, 301)
+        #self.assertTemplateUsed("profile.html")
+
+    #def test_product_site(self):
+        #response = self.client.get('/products')
+        #self.assertEqual(response.status_code, 200)
+        #response = self.client.get('/cart')
+        #self.assertEqual(response.status_code, 301)
+
+    #def test_register(self):
+        #form = UserCreationForm()
+        #self.assertIsNotNone(form)
+
+
 
         # logs in a dummy user
-        #response = self.client.login(username='admin', password='admin')
-        #response = self.client.get('/profile/')
-        #self.assertEquals(response.status_code, 200)
+        
+        #print(self.user)
+
         #print(response.content)
         # asserts if Logout is available
         #self.assertTrue('Logout' in str(response.content))
