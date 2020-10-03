@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for user\views.py: 28%</title>
+    <title>Coverage for user\views.py: 43%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,13 +17,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>user\views.py</b> :
-            <span class="pc_cov">28%</span>
+            <span class="pc_cov">43%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             69 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">19 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">50 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">30 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">39 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -73,8 +73,8 @@
     <p id="t20" class="pln"><span class="n"><a href="#t20">20</a></span><span class="t"><span class="str">    Uses built in user creation form to let the user sign</span>&nbsp;</span><span class="r"></span></p>
     <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t"><span class="str">    up.</span>&nbsp;</span><span class="r"></span></p>
     <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t"><span class="str">    '''</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t23" class="mis show_mis"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="nam">form</span> <span class="op">=</span> <span class="nam">UserCreationForm</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t24" class="mis show_mis"><span class="n"><a href="#t24">24</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">"POST"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t23" class="run"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="nam">form</span> <span class="op">=</span> <span class="nam">UserCreationForm</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t24" class="run"><span class="n"><a href="#t24">24</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">"POST"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t25" class="mis show_mis"><span class="n"><a href="#t25">25</a></span><span class="t">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">UserCreationForm</span><span class="op">(</span><span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t26" class="mis show_mis"><span class="n"><a href="#t26">26</a></span><span class="t">        <span class="key">if</span> <span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t27" class="mis show_mis"><span class="n"><a href="#t27">27</a></span><span class="t">            <span class="nam">form</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -90,8 +90,8 @@
     <p id="t37" class="mis show_mis"><span class="n"><a href="#t37">37</a></span><span class="t">        <span class="nam">messages</span><span class="op">.</span><span class="nam">error</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'Registration failed!'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t38" class="mis show_mis"><span class="n"><a href="#t38">38</a></span><span class="t">        <span class="nam">messages</span><span class="op">.</span><span class="nam">error</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="nam">form</span><span class="op">.</span><span class="nam">errors</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t39" class="pln"><span class="n"><a href="#t39">39</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t40" class="mis show_mis"><span class="n"><a href="#t40">40</a></span><span class="t">    <span class="nam">args</span> <span class="op">=</span> <span class="op">{</span><span class="str">"form"</span><span class="op">:</span> <span class="nam">form</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t41" class="mis show_mis"><span class="n"><a href="#t41">41</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">"user/register.html"</span><span class="op">,</span> <span class="nam">args</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t40" class="run"><span class="n"><a href="#t40">40</a></span><span class="t">    <span class="nam">args</span> <span class="op">=</span> <span class="op">{</span><span class="str">"form"</span><span class="op">:</span> <span class="nam">form</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t41" class="run"><span class="n"><a href="#t41">41</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">"user/register.html"</span><span class="op">,</span> <span class="nam">args</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t42" class="pln"><span class="n"><a href="#t42">42</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t43" class="pln"><span class="n"><a href="#t43">43</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t44" class="run"><span class="n"><a href="#t44">44</a></span><span class="t"><span class="key">def</span> <span class="nam">index</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -106,15 +106,15 @@
     <p id="t53" class="pln"><span class="n"><a href="#t53">53</a></span><span class="t">    <span class="str">'''</span>&nbsp;</span><span class="r"></span></p>
     <p id="t54" class="pln"><span class="n"><a href="#t54">54</a></span><span class="t"><span class="str">    Let's authentiacted users view their profile</span>&nbsp;</span><span class="r"></span></p>
     <p id="t55" class="pln"><span class="n"><a href="#t55">55</a></span><span class="t"><span class="str">    '''</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t56" class="mis show_mis"><span class="n"><a href="#t56">56</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'user/profile.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t56" class="run"><span class="n"><a href="#t56">56</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'user/profile.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t57" class="pln"><span class="n"><a href="#t57">57</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t58" class="run"><span class="n"><a href="#t58">58</a></span><span class="t"><span class="op">@</span><span class="nam">login_required</span>&nbsp;</span><span class="r"></span></p>
     <p id="t59" class="run"><span class="n"><a href="#t59">59</a></span><span class="t"><span class="key">def</span> <span class="nam">editProfileRedirect</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t60" class="mis show_mis"><span class="n"><a href="#t60">60</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'user/edit.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t60" class="run"><span class="n"><a href="#t60">60</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'user/edit.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t61" class="pln"><span class="n"><a href="#t61">61</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t62" class="run"><span class="n"><a href="#t62">62</a></span><span class="t"><span class="op">@</span><span class="nam">login_required</span>&nbsp;</span><span class="r"></span></p>
     <p id="t63" class="run"><span class="n"><a href="#t63">63</a></span><span class="t"><span class="key">def</span> <span class="nam">editProfile</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t64" class="mis show_mis"><span class="n"><a href="#t64">64</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">"POST"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t64" class="run"><span class="n"><a href="#t64">64</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">"POST"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t65" class="mis show_mis"><span class="n"><a href="#t65">65</a></span><span class="t">        <span class="nam">fname</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'fname'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t66" class="mis show_mis"><span class="n"><a href="#t66">66</a></span><span class="t">        <span class="nam">lname</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'lname'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t67" class="mis show_mis"><span class="n"><a href="#t67">67</a></span><span class="t">        <span class="nam">email</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">'email'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -135,16 +135,16 @@
     <p id="t82" class="mis show_mis"><span class="n"><a href="#t82">82</a></span><span class="t">        <span class="nam">shipping</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t83" class="mis show_mis"><span class="n"><a href="#t83">83</a></span><span class="t">        <span class="nam">customer</span> <span class="op">=</span> <span class="nam">Customer</span><span class="op">(</span><span class="nam">web_user</span><span class="op">=</span><span class="nam">user</span><span class="op">,</span> <span class="nam">address</span><span class="op">=</span><span class="nam">shipping</span><span class="op">,</span> <span class="nam">payment</span><span class="op">=</span><span class="nam">payment</span><span class="op">,</span> <span class="nam">first_name</span><span class="op">=</span><span class="nam">fname</span><span class="op">,</span> <span class="nam">last_name</span><span class="op">=</span><span class="nam">lname</span><span class="op">,</span> <span class="nam">email</span><span class="op">=</span><span class="nam">email</span><span class="op">,</span> <span class="nam">phone</span><span class="op">=</span><span class="nam">int</span><span class="op">(</span><span class="nam">phone</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t84" class="mis show_mis"><span class="n"><a href="#t84">84</a></span><span class="t">        <span class="nam">customer</span><span class="op">.</span><span class="nam">save</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t85" class="mis show_mis"><span class="n"><a href="#t85">85</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'user/profile.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t85" class="run"><span class="n"><a href="#t85">85</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'user/profile.html'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t86" class="pln"><span class="n"><a href="#t86">86</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t87" class="run"><span class="n"><a href="#t87">87</a></span><span class="t"><span class="key">def</span> <span class="nam">remove_user</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t88" class="pln"><span class="n"><a href="#t88">88</a></span><span class="t">    <span class="str">'''</span>&nbsp;</span><span class="r"></span></p>
     <p id="t89" class="pln"><span class="n"><a href="#t89">89</a></span><span class="t"><span class="str">    Removes user if he is not superuser (admin) and </span>&nbsp;</span><span class="r"></span></p>
     <p id="t90" class="pln"><span class="n"><a href="#t90">90</a></span><span class="t"><span class="str">    is logged in.</span>&nbsp;</span><span class="r"></span></p>
     <p id="t91" class="pln"><span class="n"><a href="#t91">91</a></span><span class="t"><span class="str">    '''</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t92" class="mis show_mis"><span class="n"><a href="#t92">92</a></span><span class="t">    <span class="nam">user</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">user</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t93" class="mis show_mis"><span class="n"><a href="#t93">93</a></span><span class="t">    <span class="key">if</span> <span class="key">not</span> <span class="nam">user</span><span class="op">.</span><span class="nam">is_authenticated</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t94" class="mis show_mis"><span class="n"><a href="#t94">94</a></span><span class="t">        <span class="key">return</span> <span class="nam">HttpResponse</span><span class="op">(</span><span class="str">'Must be logged in to delete user'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t92" class="run"><span class="n"><a href="#t92">92</a></span><span class="t">    <span class="nam">user</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">user</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t93" class="run"><span class="n"><a href="#t93">93</a></span><span class="t">    <span class="key">if</span> <span class="key">not</span> <span class="nam">user</span><span class="op">.</span><span class="nam">is_authenticated</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t94" class="run"><span class="n"><a href="#t94">94</a></span><span class="t">        <span class="key">return</span> <span class="nam">HttpResponse</span><span class="op">(</span><span class="str">'Must be logged in to delete user'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t95" class="mis show_mis"><span class="n"><a href="#t95">95</a></span><span class="t">    <span class="key">if</span> <span class="nam">user</span><span class="op">.</span><span class="nam">is_superuser</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t96" class="mis show_mis"><span class="n"><a href="#t96">96</a></span><span class="t">        <span class="key">return</span> <span class="nam">HttpResponse</span><span class="op">(</span><span class="str">'Delete superuser from admin'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t97" class="mis show_mis"><span class="n"><a href="#t97">97</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">"POST"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -157,7 +157,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3</a>,
-            created at 2020-10-02 15:55 +0000
+            created at 2020-10-03 15:02 +0000
         </p>
     </div>
 </div>
