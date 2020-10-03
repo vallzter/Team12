@@ -31,6 +31,13 @@ We decided on building the website with Django as framework connected to a Postg
 We decided on wanting to implement two critical components to the website; viewing of products and online shopping. We used the RESTful API architecture to display the products. But making the online shopping was more diffcult than we thought, 6 models needed to be implemented for the database. But we managed to create the views and get it up and running.
 
 ---
+
+### Sprint 3
+#### Dependency injection
+
+When adding meal package to the cart, the add(request) method in src/Team12/cart/views.py has a setter injection which is used when setting the customer. The variable customer is set with the correct User object, which represents the customer who is adding a meal package to his cart.
+
+---
 ## Software architecture
 
 Our software is designed in well defined layers; Presentation Layer, Logic Layer and Data Layer.
