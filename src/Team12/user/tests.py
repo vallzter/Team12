@@ -82,6 +82,9 @@ class FrontPageTest(TestCase):
             response = self.client.post('/user/register/', data)
             response = self.client.get('/user/')
             self.assertEqual(response.status_code, 200)
+        response = self.client.post('/user/register/', data)
+        response = self.client.get('/user/')
+        self.assertEqual(response.status_code, 200)
         
 
 class removeUser(TestCase):
