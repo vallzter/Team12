@@ -41,7 +41,7 @@ When adding meal package to the cart, the add(request) method in src/Team12/cart
 
 #### Single Responsibility Principle
 
-The function detailed_product() has the signle responisibility of sending out details on a product to an html file  
+The function detailed_product() has the signle responisibility of sending out details on a product to a template  
 The function cancelSubscription() has the single responsibility of canceling any subscription  
 The function editProfileRedirect() has the single responsibility if redirecting to an edit profile template  
 The function edit_quantity() has the single responsibility of recieving a number and changing the quantity of a product in the cart  
