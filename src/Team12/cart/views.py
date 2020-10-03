@@ -75,6 +75,18 @@ def edit_quantity(request):
         meal.save()
     return redirect(index)
 
+@login_required
+def subscribe(request):
+    if request.method == "GET":
+        raise Http404()
+    user = User.objects.get(username=request.user)
+    prod_id = request.POST.get('id')
+    prod = MealPlan.objects.get(pk=prod_id)
+    customer = Customer.objects.get(web_user=user)
+    customer.subscription = prod
+    customer.save()
+    return redirect(index)
+
 #def add_quantity(request):# Testaðu þetta Fannar
 #    if request.method == "GET":
 #        raise Http404()

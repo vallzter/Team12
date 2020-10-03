@@ -10,5 +10,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('remove/', views.remove_user, name='remove'),
     path('edit/', views.editProfileRedirect, name='editProfileRedirect'),
-    path('editProfile/', views.editProfile, name='editProfile')
+    path('editProfile/', views.editProfile, name='editProfile'),
+    path('cancel/', views.cancelSubscription, name='cancel')
 ]

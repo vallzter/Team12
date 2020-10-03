@@ -1,15 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-Welcome to your profile, {{user.get_username}}!
-<form method="post" action="{% url 'editProfileRedirect' %}">
-    {% csrf_token %}
-    <button type="submit">Edit Profile</button>
-</form>
-<form method="post" action="{% url 'Logout' %}">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
-<a href="{% url 'remove' %}">Remove account</a>
+    Welcome to your profile, {{user.get_username}}!
+    <p>Name: {{ customer.first_name }} {{ customer.last_name }}</p>
+    <p>Email: {{ customer.email }}</p>
+    <p>Phone: {{ customer.phone }}  </p>
+    <p>Subscription: {{ customer.subscription }}</p>
+    {% if customer.subscription %}
+    <form method="post" action="{% url 'cancel' %}">
+        {% csrf_token %}
+        <button type="submit">Cancel Subscription</button>
+    </form>
+    {% endif %}
+    <form method="post" action="{% url 'editProfileRedirect' %}">
+        {% csrf_token %}
+        <button type="submit">Edit Profile</button>
+    </form>
+    <form method="post" action="{% url 'Logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    <a href="{% url 'remove' %}">Remove account</a>
 
 {% endblock %}

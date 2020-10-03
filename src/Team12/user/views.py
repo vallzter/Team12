@@ -53,7 +53,28 @@ def profile(request):
     '''
     Let's authentiacted users view their profile
     '''
-    return render(request, 'user/profile.html')
+    user = User.objects.get(username=request.user)
+    try:
+        customer = Customer.objects.get(web_user=user)
+        context = {
+            'customer': customer
+        }
+    except:
+        context = {
+            'customer': None
+        }
+    return render(request, 'user/profile.html',context=context)
+
+
+@login_required
+def cancelSubscription(request):
+    if request.method == "GET":
+        raise Http404()
+    user = User.objects.get(username=request.user)
+    customer = Customer.objects.get(web_user=user)
+    customer.subscription = None
+    customer.save()
+    return redirect(index)
 
 @login_required
 def editProfileRedirect(request):
@@ -80,9 +101,9 @@ def editProfile(request):
         payment.save()#payment method saved
         shipping = ShippingAddress(country=country, region=region, city=city, street=address, info=info)
         shipping.save()#shipping address saved
-        customer = Customer(web_user=user, address=shipping, payment=payment, first_name=fname, last_name=lname, email=email, phone=int(phone))
+        customer = Customer(web_user=user, address=shipping, payment=payment, first_name=fname, last_name=lname, email=email, phone=int(phone), subscription=None)
         customer.save()#customer created
-    return render(request, 'user/profile.html')
+    return redirect(index)
 
 def remove_user(request):
     '''

@@ -99,7 +99,7 @@ class Cart(models.Model):
 
 class Order(models.Model):
 
-    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT)
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.PROTECT, blank=True)
     ordered  = models.DateField(_("Order date"), auto_now=False, auto_now_add=True)
     shipped  = models.DateField(_("Shipping date"), auto_now=False, auto_now_add=False)
     ship_to  = models.OneToOneField("ShippingAddress", verbose_name=_("Ship To"), on_delete=models.CASCADE)
