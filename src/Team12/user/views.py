@@ -74,14 +74,14 @@ def editProfile(request):
         card_no = request.POST.get('card')
         cvv = request.POST.get('cvv')
         date = request.POST.get('date')
-        cardholder = request.POST.get('name')
+        cardholder = request.POST.get('name')#fetch alot of data
         user = User.objects.get(username=request.user)
         payment = PaymentMethod(cardnumber=card_no, CVV=cvv, date=date, name=cardholder)
-        payment.save()
+        payment.save()#payment method saved
         shipping = ShippingAddress(country=country, region=region, city=city, street=address, info=info)
-        shipping.save()
+        shipping.save()#shipping address saved
         customer = Customer(web_user=user, address=shipping, payment=payment, first_name=fname, last_name=lname, email=email, phone=int(phone))
-        customer.save()
+        customer.save()#customer created
     return render(request, 'user/profile.html')
 
 def remove_user(request):
