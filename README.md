@@ -39,7 +39,7 @@ The team decided to focus more in this sprint on getting the tests up and runnin
 
 When adding meal package to the cart, the add(request) method in src/Team12/cart/views.py has a setter injection which is used when setting the customer. The variable customer is set with the correct User object, which represents the customer who is adding a meal package to his cart.
 
-### Single Responsibility Principle
+#### Single Responsibility Principle
 
 The function detailed_product() has the signle responisibility of sending out details on a product to an html file
 The function cancelSubscription() has the single responsibility of canceling any subscription
