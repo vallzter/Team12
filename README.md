@@ -33,6 +33,8 @@ We decided on wanting to implement two critical components to the website; viewi
 ---
 
 ### Sprint 3
+The team decided to focus more in this sprint on getting the tests up and running, as it had been a huge headache for quite some time, as well as the lecture aspects. We finally managed to fix the testing issues and added some nice features as well. Sketching up all the diagrams went rather smoothly, except for the delivery diagram, as it proved to be fairly difficult finding an example of such online or in the textbook.
+
 #### Dependency injection
 
 When adding meal package to the cart, the add(request) method in src/Team12/cart/views.py has a setter injection which is used when setting the customer. The variable customer is set with the correct User object, which represents the customer who is adding a meal package to his cart.
