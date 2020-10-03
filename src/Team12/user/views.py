@@ -72,7 +72,7 @@ def cancelSubscription(request):
         raise Http404()
     user = User.objects.get(username=request.user)
     customer = Customer.objects.get(web_user=user)
-    customer.subscription = None
+    customer.subscription = None#cancel all subscriptions, this will be updated later to cancel individual
     customer.save()
     return redirect(index)
 

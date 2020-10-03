@@ -83,7 +83,7 @@ def subscribe(request):
     prod_id = request.POST.get('id')
     prod = MealPlan.objects.get(pk=prod_id)
     customer = Customer.objects.get(web_user=user)
-    customer.subscription = prod
+    customer.subscription = prod#adds priduct id to subscription
     customer.save()
     return redirect(index)
 
