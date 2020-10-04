@@ -101,12 +101,20 @@ We have installed the package, coverage, which at the moment reports 39% of the 
 
 We utilized 6 design patterns in sprint 2 which are listed below:
 <ul>
-    <li>The user accesses the meal packages via a registry (database). They can also be accessed by search and sort interfaces. </li>
-    <li>The meal packages themselves are value objects and their prices can be compared.</li>
-    <li>The delivery time was a Service Stub. It relies on external factors such as the number of delivery staff available and deliveries on a given day.</li>
-    <li>Delivery place was an example of gateway. They are subject to change and can vary depending on user's locataion.</li>
-    <li>The shop sorting system was a seperate interface. It implements the data interface while other parts can also access the data irresepective of the sort.</li>
-    <li>Adding packages as administrator was an example of the mapper. The mapper manages what meal packages are displayed to a user and the user's cart.</li>
+    <li>The user accesses the meal packages via a registry (database).
+	The meal package database feeds information that can be displayed. 
+	However, it can also be accessed by search and sort interfaces.</li>
+    <li>The meal packages themselves are value objects and their prices can be compared.
+	They are individually defined and have a few attributes.
+	However, they are used by the user when viewing, selecting and purchasing.</li>
+    <li>The selected delivery time of an order is represented by a service stub.
+	External factors influence available time slots, e.g. the number of prepping and delivery staff as well as the number of deliveries on a given day.</li>
+    <li>Delivery place is an example of a gateway.
+	The delivery gateway is gets information such as the user's location and cart contents, and returns available delivery locations.</li>
+    <li>The sorting implementation for the meal packages is a seperated interface.
+	It is dependant on the data interface but other parts can also access the data irrespective of the sort.</li>
+    <li>The meal packages that users see displayed are managed by a mapper.
+	The admininstrator can see and edit the packages which are then displayed to users if available.</li>
 </ul>
 
 ## Screens
