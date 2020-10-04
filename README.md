@@ -101,14 +101,12 @@ We have installed the package, coverage, which at the moment reports 39% of the 
 
 We utilized 6 design patterns in sprint 2 which are listed below:
 <ul>
-    <li>The registery was utilized with the meal package selection</li>
-    <li>Ingredients were implemented as a Value Object</li>
-    <li>The shopping Cart was a plugin design</li>
-    <li>The Delivery Time was a Service Stub</li>
-    <li>Delivery Place was an example of Gateway</li>
-    <li>The Shop Sorting system was a Seperate interface</li>
-    <li>Adding packages as administrator was an example of the mapper</li>
-    <li>Deleting packages was likewise an example of the same design principle</li>
+    <li>The user accesses the meal packages via a registry (database). They can also be accessed by search and sort interfaces. </li>
+    <li>The meal packages themselves are value objects and their prices can be compared.</li>
+    <li>The delivery time was a Service Stub. It relies on external factors such as the number of delivery staff available and deliveries on a given day.</li>
+    <li>Delivery place was an example of gateway. They are subject to change and can vary depending on user's locataion.</li>
+    <li>The shop sorting system was a seperate interface. It implements the data interface while other parts can also access the data irresepective of the sort.</li>
+    <li>Adding packages as administrator was an example of the mapper. The mapper manages what meal packages are displayed to a user and the user's cart.</li>
 </ul>
 
 ## Screens
