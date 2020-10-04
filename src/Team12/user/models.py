@@ -12,7 +12,7 @@ class Customer(models.Model):
     last_name  = models.CharField(_("Last name"), max_length=50, blank=True)
     email      = models.EmailField(_("Email"), max_length=254, blank=True)
     phone      = models.IntegerField(_("Phone"), blank=True)
-    subscription = models.OneToOneField("product.MealPlan", verbose_name="Meal Plan", on_delete=models.CASCADE, blank=True)
+    subscription = models.OneToOneField("product.MealPlan", verbose_name="Meal Plan", on_delete=models.CASCADE, blank=True,null=True)
 
     class Meta:
         verbose_name = _("Customer")
