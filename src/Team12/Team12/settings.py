@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Team12.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'team12',
         'USER':'elmar',
         'PASSWORD': 'mypassword',
         'HOST': 'localhost',

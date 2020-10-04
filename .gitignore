@@ -39,3 +39,7 @@ venv/
 .idea/workspace.xml
 .idea/Team12.iml
 .idea/workspace.xml
+src/Team12/meal_package/migrations/0001_initial.py
+src/Team12/meal_package/migrations/0002_auto_20200914_2222.py
+src/Team12/meal_package/migrations/0003_auto_20200914_2236.py
+src/Team12/Team12/settings.py
