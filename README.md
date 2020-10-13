@@ -26,12 +26,10 @@ The project is a website, developed in Django, for users to easily buy meal pack
 We decided on building the website with Django as framework connected to a Postgres as database. Possibly using Atomic for the UI in the future. We are currently using built-in models, admin and users. As of now, the website contains functionality for users to register, login, look at their profile, logout and delete their account.
 
 ---
-
 ### Sprint 2
 We decided on wanting to implement two critical components to the website; viewing of products and online shopping. We used the RESTful API architecture to display the products. But making the online shopping was more diffcult than we thought, 6 models needed to be implemented for the database. But we managed to create the views and get it up and running.
 
 ---
-
 ### Sprint 3
 The team decided to focus more in this sprint on getting the tests up and running, as it had been a huge headache for quite some time, as well as the lecture aspects. We finally managed to fix the testing issues and added some nice features as well. Sketching up all the diagrams went rather smoothly, except for the delivery diagram, as it proved to be fairly difficult finding an example of such online or in the textbook.
 
@@ -44,7 +42,18 @@ When adding meal package to the cart, the add(request) method in src/Team12/cart
 The function detailed_product() has the single responisibility of sending out details on a product to a template  
 The function cancelSubscription() has the single responsibility of canceling any subscription  
 The function editProfileRedirect() has the single responsibility if redirecting to an edit profile template  
-The function edit_quantity() has the single responsibility of recieving a number and changing the quantity of a product in the cart  
+The function edit_quantity() has the single responsibility of recieving a number and changing the quantity of a product in the cart
+
+---
+### Sprint 4
+
+#### Conway's law
+
+As Conway's law states: ,,Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.".
+
+Therefore, as our software is structured in a layered architecture, our communication structure would have certain team/s working on a particular layer, whether it is the presentation layer, the logic layer or the data layer.
+
+This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer
 
 ---
 ## Software architecture
