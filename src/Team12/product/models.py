@@ -9,7 +9,7 @@ class MealPlan(models.Model):
     recipe      = models.TextField(blank=False)
     ingredients = models.TextField(blank=False, default="N/A")
     image       = models.CharField(max_length=255)
-
+    allergies   = models.CharField(max_length=255)
     objects     = models.Manager()
 
     class Meta:
