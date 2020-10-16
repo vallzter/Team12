@@ -80,10 +80,12 @@ Now run the server
 ```
 Now you can visit our [website](http://localhost:8000).
 ```
+First thing you need to do is create a customer model
 1. Create an account
 2. Go to profile and click "Edit Profile"
 3. Fill in all the fields
 4. Now you can freely use the website
+
 ```
 ---
 ### How to download `pip.py`
