@@ -1,28 +1,130 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'Index' %}">Site name</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+    <a class="navbar-brand" href="{% url 'Index' %}">Team 12</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
-            {% endif %}
+            
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'products:index' %}">Products</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'cart' %}">Cart</a>
-            </li>
+
+        </ul>
+
+        <ul class="navbar-nav">
             {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'Logout' %}">{% if user.get_username %}Log out{% else %}Log in
-                {% endif %}</a>
-            </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{user.username}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="{% url 'profile' %}">My profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'Logout' %}">Logout</a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'Login' %}">Log in</a>
+                </li>
             {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart' %}">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                </a>
+            </li>
         </ul>
     </div>
+    </div>
 </nav>
+
+{% comment %} 
+doctype html
+
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-compatible' content="IE=edge")
+    meta(name='viewport' content='width=device-width initial-scale=1.0')
+    meta(name='description' content='sandbox')
+    link(rel='shortcut icon' href='../../docs-assets/ico/favicon.png')
+    
+    title Sticky Footer Navbar Template for Bootstrap
+    
+    // Bootstrap core CSS
+    link(href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet")
+    // Custom styles for this template would go here
+    
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and MedQuerys
+    //
+      | [if lt IE 9]>
+      | <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      | <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      | [endif]
+      
+  body
+    // Wrap page content
+    #wrap
+      // Fixed navbar
+      .navbar.navbar-default.navbar-fixed-top(role='navigation')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button' data-toggle='collapse' data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') Project name
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active: a(href='#') Home
+              li: a(href='#about') About
+              li: a(href='#contact') Contact
+              li.dropdown
+                a.dropdown-toggle(href='#' data-toggle='dropdown') Dropdown
+                  b.caret
+                ul.dropdown-menu
+                  li: a(href='#') Action
+                  li: a(href='#') Another action
+                  li: a(href='#') Something else here
+                  li.divider
+                  li.dropdown-header Nav header
+                  li: a(href='#') Separated Link
+                  li: a(href='#') One more separated link
+    
+      // Begin page content
+      .container
+        .page-header
+          h1 Sticky footer with fixed navbar
+        p.lead
+          | Pin a fixed-height footer to the bottom of the viewport 
+          | in desktop browsers with this custom HTML and CSS. 
+          | A fixed navbar has been added within 
+          code
+            | .wrap.
+        p
+          | Back to 
+          a(href='../sticky-footer') the default sticky footer
+          |  minus the navbar.
+    
+    // Footer should be outside of .wrap
+    #footer
+      .container
+        p.text-muted Place sticky footer content here.
+    
+    // Bootstrap core JavaScript 
+    // ================================= 
+    // Placed at the end of the document so the page loads faster 
+    script(src='https://code.jquery.com/jquery-1.10.2.min.js')
+    script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
+        
+        
+                  
+                  
+      
+    {% endcomment %}

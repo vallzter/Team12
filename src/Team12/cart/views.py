@@ -12,52 +12,45 @@ from cart.models import LineItem, Cart, Order
 @login_required
 def index(request):
     #todo, send context to cart/index.html
+    customer = User.objects.get(username=request.user)
     try:
-        customer = User.objects.get(username=request.user)
         cart = Cart.objects.get(web_user=customer)
         cart_items = LineItem.objects.filter(cart=cart) if cart else None
-        context = {
-            'cart': cart,
-            'cart_items': cart_items
-        }
-        return render(request, 'cart/index.html', context=context)
     except:
-        return render(request, 'cart/index.html')
-
+        cart = None
+        cart_items = None
+        
+    context = {
+        'cart': cart,
+        'cart_items': cart_items
+    }
+    return render(request, 'cart/index.html', context=context)
+    
 @login_required
 def add(request): 
     # add item to cart
-    if request.method == "GET":
+    if request.method != "POST":
         raise Http404()
     prod_id = request.POST.get('id')
     quantity = request.POST.get('quantity') or 1
     prod = MealPlan.objects.get(pk=prod_id)
     customer = User.objects.get(username=request.user)
-    user_cart = 0
-    try:
-        user_cart = Cart.objects.get(web_user=customer)
-    except:
-        pass
-    if user_cart:#work with excisting cart
-        if user_cart.contains(prod):#add to quantity
-            all_items = LineItem.objects.filter(cart=user_cart)
-            meal = all_items.filter(mealplan=prod).get(mealplan=prod)
-            meal.quantity += int(quantity)
-            meal.save()
-        else:#add item
-            cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
-            cart_item.save()
-    else:#make a new one
-        user_customer = Customer.objects.get(web_user=customer)
-        new_cart = Cart(customer=user_customer,web_user=customer, created=timezone.now())
-        new_cart.save()
-        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=new_cart)
+    user_cart, create = Cart.objects.get_or_create(web_user=customer)
+    
+    if user_cart.contains(prod):#add to quantity
+        all_items = LineItem.objects.filter(cart=user_cart)
+        meal = all_items.get(mealplan=prod)
+        meal.quantity += int(quantity)
+        meal.save()
+    else:
+        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
         cart_item.save()
+
     return redirect(index)
 
 @login_required
 def edit_quantity(request):
-    if request.method == "GET":
+    if request.method != "POST":
         raise Http404()
     customer = User.objects.get(username=request.user)
     prod_id = request.POST.get('id')

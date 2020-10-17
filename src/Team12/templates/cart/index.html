@@ -1,42 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
+
+{% if cart and cart_items %}
+<h3>Your cart</h3>
+{% for item in cart_items %}
     <div>
-        {% if cart %}
-        <h3>Your cart</h3>
-        {% for item in cart_items %}
-            <div>
-                <form action="{% url 'delete' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" name="id" value="{{ item.mealplan.id }}"> Delete </button>
-                </form>
-                <div>
-                    <img src="{{ item.mealplan.image }}" style='max-width: 500px; max-height: 100%;'
-                        alt="{{ item.mealplan.name }}">
-                </div>
-                <p> {{ item.mealplan.name }} </p>
-                <p> Quantity: {{ item.quantity}} </p>
-                <p> {{ item.get_price}} kr.</p>
-                <p>Total price: {{ cart.total_price }}</p>
-                <form action="{% url 'edit_quantity' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" name="id" value="{{ item.mealplan.id }}"> Edit Quantity </button>
-                    <input type="number" name="quantity" value=1 min=1 max=10>
-                </form>
-                <form action="{% url 'checkout' %}" method="POST">
-                    {% csrf_token %}
-                    <button action="checkout" type="submit">
-                        checkout
-                    </button>
-                </form>
-            </div>
-        {% endfor %}
-        {% else %}
-        <h3>
-            Your cart seems to be empty.<br>
-            Go buy something!<br>
-            Please...
-        </h3>
-        {% endif %}
+        <form action="{% url 'delete' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="id" value="{{ item.mealplan.id }}"> Delete </button>
+        </form>
+        <div>
+            <img src="{{ item.mealplan.image }}" style='max-width: 500px; max-height: 100%;'
+                alt="{{ item.mealplan.name }}">
+        </div>
+        <p> {{ item.mealplan.name }} </p>
+        <p> Quantity: {{ item.quantity}} </p>
+        <p> {{ item.get_price}} kr.</p>
+        
+        <form action="{% url 'edit_quantity' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="id" value="{{ item.mealplan.id }}"> Edit Quantity </button>
+            <input type="number" name="quantity" value=1 min=1 max=10>
+        </form>
     </div>
+{% endfor %}
+<p>Total price: {{ cart.total_price }}</p>
+<form action="{% url 'checkout' %}" method="POST">
+    {% csrf_token %}
+    <button action="checkout" type="submit">
+        checkout
+    </button>
+</form>
+{% else %}
+<h3>
+    Your cart seems to be empty.<br>
+    Go buy something!<br>
+    Please...
+</h3>
+{% endif %}
 
 {% endblock %}
