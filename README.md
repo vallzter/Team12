@@ -57,8 +57,7 @@ This is not really the case in our project. While this show in some extend, wher
 
 #### Risk management analysis
 
-![](readme_images/risk-management1.png)
-![](readme_images/risk-management2.png)
+See risk-management.pdf
 
 ---
 ## Software architecture
