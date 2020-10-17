@@ -99,9 +99,60 @@ Open the shell where `get-pip.py` was downloaded.
 ---
 
 ### How to test
+IMPORTANT: if the user wishes to run the tests, then he has to do so on a local database
+our elephantSQL database does not allow us to run tests as we are no granted the permission to
+create a dummy database for running the tests
+
 ```
 > python manage.py test
+# or for the coverage run 
+> coverage run manage.py test
 ```
+
+
+
+## Coverage Report
+
+Name                                            Stmts   Miss  Cover
+-------------------------------------------------------------------
+Team12\__init__.py                                  0      0   100%
+Team12\settings.py                                 22      0   100%
+Team12\urls.py                                      5      0   100%
+cart\__init__.py                                    0      0   100%
+cart\admin.py                                       1      0   100%
+cart\migrations\0001_initial.py                     5      0   100%
+cart\migrations\0002_auto_20201004_1419.py          7      0   100%
+cart\migrations\__init__.py                         0      0   100%
+cart\models.py                                     83     21    75%
+cart\tests.py                                      10      0   100%
+cart\urls.py                                        3      0   100%
+cart\views.py                                      96     75    22%
+manage.py                                          12      2    83%
+meal_package\__init__.py                            0      0   100%
+meal_package\migrations\__init__.py                 0      0   100%
+meal_package\tests.py                               1      0   100%
+product\__init__.py                                 0      0   100%
+product\admin.py                                    5      0   100%
+product\migrations\0001_initial.py                  5      0   100%
+product\migrations\0002_mealplan_allergies.py       4      0   100%
+product\migrations\__init__.py                      0      0   100%
+product\models.py                                  18      2    89%
+product\tests.py                                   25      0   100%
+product\urls.py                                     5      0   100%
+product\views.py                                   19      0   100%
+user\__init__.py                                    0      0   100%
+user\admin.py                                       2      0   100%
+user\migrations\0001_initial.py                     7      0   100%
+user\migrations\__init__.py                         0      0   100%
+user\models.py                                     20      2    90%
+user\tests.py                                      64      0   100%
+user\urls.py                                        4      0   100%
+user\views.py                                      84     14    83%
+-------------------------------------------------------------------
+TOTAL                                             507    116    77%
+
+As it can be seen above, all our apps are almost completely coved by the test. All that remains is the cart view. 
+
 
 ## Testing
 
