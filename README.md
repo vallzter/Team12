@@ -112,61 +112,13 @@ create a dummy database for running the tests
 
 
 ## Coverage Report
+     Covered  Missed   %
+TOTAL	507    116    77%
 
-Name                                            Stmts   Miss  Cover
-<br />
--------------------------------------------------------------------
-<br />
-Team12\__init__.py                                  0      0   100%
-<br />
-Team12\settings.py                                 22      0   100%
-<br />
-Team12\urls.py                                      5      0   100%
-cart\__init__.py                                    0      0   100%
-cart\admin.py                                       1      0   100%
-cart\migrations\0001_initial.py                     5      0   100%
-cart\migrations\0002_auto_20201004_1419.py          7      0   100%
-cart\migrations\__init__.py                         0      0   100%
-cart\models.py                                     83     21    75%
-cart\tests.py                                      10      0   100%
-cart\urls.py                                        3      0   100%
-cart\views.py                                      96     75    22%
-manage.py                                          12      2    83%
-meal_package\__init__.py                            0      0   100%
-meal_package\migrations\__init__.py                 0      0   100%
-meal_package\tests.py                               1      0   100%
-product\__init__.py                                 0      0   100%
-product\admin.py                                    5      0   100%
-product\migrations\0001_initial.py                  5      0   100%
-product\migrations\0002_mealplan_allergies.py       4      0   100%
-product\migrations\__init__.py                      0      0   100%
-product\models.py                                  18      2    89%
-product\tests.py                                   25      0   100%
-product\urls.py                                     5      0   100%
-product\views.py                                   19      0   100%
-user\__init__.py                                    0      0   100%
-user\admin.py                                       2      0   100%
-user\migrations\0001_initial.py                     7      0   100%
-user\migrations\__init__.py                         0      0   100%
-user\models.py                                     20      2    90%
-user\tests.py                                      64      0   100%
-user\urls.py                                        4      0   100%
-user\views.py                                      84     14    83%
--------------------------------------------------------------------
-TOTAL                                             507    116    77%
+As it can be seen above, all our apps are almost completely coved by the test.
+For a more detailed report check the htmlcov located in src/team12/htmlcov
+All that remains is the cart view. 
 
-As it can be seen above, all our apps are almost completely coved by the test. All that remains is the cart view. 
-
-
-## Testing
-
-Regarding our tests, we have tried relentlessly in the past two sprints to get our test code work as should. However, our database raises an error when trying to test functionality regarding it, saying that certain permission is needed. As said, we have tried with all our might to give us somehow this certain permission or bypass this in some way, but without any success. <br />
-<br />
-Our project is at that stage that our only tests that we can implement is regarding the database, e.g. that the user is created correctly, products are fetched in the correct manner, data is manipulated the right way etc. <br />
-<br />
-We are currently using Elephantsql and Postgres but we are strongly considering changing services for next sprint, as this combo is causing us severe headache. Also, as we are using the free tier, allowing only 5 connections which complicates the matter even more. <br />
-<br />
-We have installed the package, coverage, which at the moment reports 39% of the code is tested.
 
 ## Design Patterns
 
