@@ -114,9 +114,13 @@ create a dummy database for running the tests
 ## Coverage Report
 
 Name                                            Stmts   Miss  Cover
+<br />
 -------------------------------------------------------------------
+<br />
 Team12\__init__.py                                  0      0   100%
+<br />
 Team12\settings.py                                 22      0   100%
+<br />
 Team12\urls.py                                      5      0   100%
 cart\__init__.py                                    0      0   100%
 cart\admin.py                                       1      0   100%
