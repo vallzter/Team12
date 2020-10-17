@@ -55,6 +55,10 @@ Therefore, as our software is structured in a layered architecture, our communic
 
 This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer
 
+#### Risk management analysis
+
+See risk-management.pdf
+
 ---
 ## Software architecture
 
