@@ -53,7 +53,25 @@ As Conway's law states: ,,Any organization that designs a system (defined broadl
 
 Therefore, as our software is structured in a layered architecture, our communication structure would have certain team/s working on a particular layer, whether it is the presentation layer, the logic layer or the data layer.
 
-This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer
+This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer.
+
+#### Non-functional requirments
+
+See non-func-requirements.pdf
+
+#### Constraints
+
+1. Two-week deadline for each sprint
+	Addressed by: The team is well organised by using Asana, where every sprint is planned thoroughly for maximum efficiency.
+
+2. Some team members inexperienced with the framework
+	Addressed by: Those team members search for knowledge about that particular framework through e.g. video tutorials or article online. The team also tries to use pair programming as much as possible where more inexperienced team members are paired with more experienced ones.
+
+3. Database can only have max 5 concurrent connections
+	Addressed by: The team tries to balance the load on the database with good communications on Discord.
+
+4. No in-person meetings due to Covid-19
+	Addressed by: The team uses Discord for all team communications and meetings and Google Meet for meetings with the TA.
 
 #### Risk management analysis
 
