@@ -55,6 +55,17 @@ Therefore, as our software is structured in a layered architecture, our communic
 
 This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer.
 
+
+### Identifying Components
+
+One of the components that we identified was the django user. The user comes equiped with some nice features like a simple log in system that can be improved upon depending on
+your needs, the user can be completely replaced by a new system but we decided on using it as we didin't notice any downsides. 
+So in conclusion user is both independently replaceable and upgradable.
+
+The next component identified was the postgres database. We decided on using it since most of us used it recently. it proved to be very simple apart from testing issued which 
+was caused by our hosting service. The postgres database in it self can be independently replaced but not upgraded.
+
+
 #### Non-functional requirments
 
 See non-func-requirements.pdf
