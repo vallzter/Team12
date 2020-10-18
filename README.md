@@ -140,9 +140,7 @@ create a dummy database for running the tests
 ```
 
 ## Coverage Report	
-Covered: 507 Statements
-Missed: 116 Statements
-Coverage procentage: 77%
+<img src="readme_images/Coverage.png" width="200"/>
 
 As it can be seen above, all our apps are almost completely coved by the test.
 For a more detailed report check the htmlcov located in src/team12/htmlcov.
