@@ -130,7 +130,7 @@ Open the shell where `get-pip.py` was downloaded.
 
 ## How to test
 IMPORTANT: if the user wishes to run the tests, then he has to do so on a local database
-our elephantSQL database does not allow us to run tests as we are no granted the permission to
+our elephantSQL database does not allow us to run tests as we are not granted the permission to
 create a dummy database for running the tests
 
 ```
