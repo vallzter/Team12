@@ -70,7 +70,7 @@ def edit_quantity(request):
 
 @login_required
 def subscribe(request):
-    if request.method == "GET":
+    if request.method != "POST":
         raise Http404()
     user = User.objects.get(username=request.user)
     prod_id = request.POST.get('id')
@@ -123,7 +123,7 @@ def subscribe(request):
 
 @login_required
 def delete(request):
-    if request.method == "GET":
+    if request.method != "POST":
         raise Http404()
     customer = User.objects.get(username=request.user)
     prod_id = request.POST.get('id')
