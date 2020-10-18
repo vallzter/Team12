@@ -61,19 +61,19 @@ See non-func-requirements.pdf
 
 #### Constraints
 
-1) Two-week deadline for each sprint
+<strong>1) Two-week deadline for each sprint</strong>
 
 Addressed by: The team is well organised by using Asana, where every sprint is planned thoroughly for maximum efficiency.
 
-2) Some team members inexperienced with the framework
+<strong>2) Some team members inexperienced with the framework</strong>
 
 Addressed by: Those team members search for knowledge about that particular framework through e.g. video tutorials or article online. The team also tries to use pair programming as much as possible where more inexperienced team members are paired with more experienced ones.
 
-3) Database can only have max 5 concurrent connections
+<strong>3) Database can only have max 5 concurrent connections</strong>
 
 Addressed by: The team tries to balance the load on the database with good communications on Discord.
 
-4) No in-person meetings due to Covid-19
+<strong>4) No in-person meetings due to Covid-19</strong>
 
 Addressed by: The team uses Discord for all team communications and meetings and Google Meet for meetings with the TA.
 
