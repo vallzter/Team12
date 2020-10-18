@@ -88,13 +88,13 @@ Addressed by: The team tries to balance the load on the database with good commu
 
 Addressed by: The team uses Discord for all team communications and meetings and Google Meet for meetings with the TA.
 
-#### Logging
-We have completely overlooked logging so far in the development, we have been using the default django error handling for error information.
-We would like to add logging to the followong components: Register, Login, Add to Cart, Remove from Cart, View Product.  This would be done with django's build in logging module.
-
 #### Risk management analysis
 
 See risk-management.pdf
+
+#### Logging
+We have completely overlooked logging so far in the development, we have been using the default django error handling for error information.
+We would like to add logging to the followong components: Register, Login, Add to Cart, Remove from Cart, View Product.  This would be done with django's build in logging module.
 
 ---
 ## Software architecture
