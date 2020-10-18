@@ -22,7 +22,7 @@
     <div>
         <form
             {% if user.is_authenticated %}
-                action="{% url 'add_item' %}"
+                action="{% url 'cart:add_item' %}"
             {% else %}
                 action="#"
             {% endif %}
@@ -35,7 +35,7 @@
         </form>
         <form
             {% if user.is_authenticated %}
-                action="{% url 'subscribe' %}"
+                action="{% url 'cart:subscribe' %}"
             {% else %}
                 action="#"
             {% endif %}

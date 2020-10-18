@@ -5,7 +5,7 @@
 <h3>Your cart</h3>
 {% for item in cart_items %}
     <div>
-        <form action="{% url 'delete' %}" method="post">
+        <form action="{% url 'cart:delete' %}" method="post">
             {% csrf_token %}
             <button type="submit" name="id" value="{{ item.mealplan.id }}"> Delete </button>
         </form>
@@ -17,7 +17,7 @@
         <p> Quantity: {{ item.quantity}} </p>
         <p> {{ item.get_price}} kr.</p>
         
-        <form action="{% url 'edit_quantity' %}" method="post">
+        <form action="{% url 'cart:edit_quantity' %}" method="post">
             {% csrf_token %}
             <button type="submit" name="id" value="{{ item.mealplan.id }}"> Edit Quantity </button>
             <input type="number" name="quantity" value=1 min=1 max=10>
@@ -25,7 +25,7 @@
     </div>
 {% endfor %}
 <p>Total price: {{ cart.total_price }}</p>
-<form action="{% url 'checkout' %}" method="POST">
+<form action="{% url 'cart:checkout' %}" method="POST">
     {% csrf_token %}
     <button action="checkout" type="submit">
         checkout

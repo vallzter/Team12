@@ -57,6 +57,11 @@ class LineItem(models.Model):
 
     def __str__(self):
         return f"Cart#{self.id}"
+    
+    @classmethod
+    def create(cls, cart, mealplan, quantity=0):
+        return cls(cart=cart, mealplan=mealplan, quantity=quantity)
+
 
     def get_absolute_url(self):
         return reverse("lineitem_detail", kwargs={"pk": self.pk})

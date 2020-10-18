@@ -48,3 +48,34 @@
 }
 
 </style>
+
+<script>
+  function toggleCart() {
+    var navbar = document.getElementById("the-header");
+    var cart = document.getElementById("cart-preview");
+    var cartWidth = parseInt(cart.style.width);
+    if (parseInt(cart.style.right) < 0) { 
+      cart.style.right = "0";
+      navbar.style.right = String(cartWidth) + "px";
+    } else { 
+      cart.style.right = String(-cartWidth) + "px";
+      navbar.style.right = "0";
+    }
+  }
+
+  function clickOfCart(e) {
+    // Get viewport width
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    var cart = document.getElementById("cart-preview").style // Cart preview panel
+
+    if (parseInt(cart.right) < 0) { return; } // If it is closed return
+
+    // Else toggle it down if user clicks off it
+    if (!((-vw + e.clientX) > (parseInt(cart.right) - parseInt(cart.width)))) {
+      toggleCart();
+    }
+  }
+
+  document.addEventListener("click", clickOfCart);
+
+</script>

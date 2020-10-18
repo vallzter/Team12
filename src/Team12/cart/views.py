@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from product.models import MealPlan
@@ -46,7 +46,7 @@ def add(request):
         cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
         cart_item.save()
 
-    return redirect(index)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back after post method
 
 @login_required
 def edit_quantity(request):
@@ -66,7 +66,22 @@ def edit_quantity(request):
         meal = all_items.filter(mealplan=prod).get(mealplan=prod)
         meal.quantity = int(quantity)
         meal.save()
-    return redirect(index)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back after post method
+
+@login_required
+def change_quantity(request):
+    if request.method != "POST":
+        raise Http404()
+    customer = User.objects.get(username=request.user)
+    mealplan = request.POST.get('id')
+    quantity = request.POST.get('quantity')
+    cart, create_cart = Cart.objects.get_or_create(web_user=customer)
+    item, create_item = LineItem.objects.get_or_create(cart=cart, mealplan=mealplan)
+    
+    item.quantity = quantity
+    item.save()
+    
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back after post method
 
 @login_required
 def subscribe(request):
@@ -80,46 +95,6 @@ def subscribe(request):
     customer.save()
     return redirect(index)
 
-#def add_quantity(request):# Testaðu þetta Fannar
-#    if request.method == "GET":
-#        raise Http404()
-#    customer = User.objects.get(username=request.user)
-#    prod_id = request.POST.get('id')
-#    user_cart = 0
-#   try:
-#        user_cart = Cart.objects.get(web_user=customer)
-#    except:
-#        pass
-#    if user_cart:
-#        prod = MealPlan.objects.get(pk=prod_id)
-#        all_items = LineItem.objects.filter(cart=user_cart)
-#        meal = all_items.filter(mealplan=prod).get(mealplan=prod)
-#        meal.quantity += 1
-#        meal.save()
-#    return redirect(index)
-
-#@login_required
-#def dec_quantity(request):# Testaðu þetta Fannar
-#    if request.method == "GET":
-#        raise Http404()
-#    customer = User.objects.get(username=request.user)
-#    prod_id = request.POST.get('id')
-#    user_cart = 0
-#    try:
-#        user_cart = Cart.objects.get(web_user=customer)
-#    except:
-#        pass
-#    if user_cart:
-#        prod = MealPlan.objects.get(pk=prod_id)
-#        all_items = LineItem.objects.filter(cart=user_cart)
-#        meal = all_items.filter(mealplan=prod).get(mealplan=prod)
-#        if meal.quantity > 1:
-#            meal.quantity -= 1
-#            meal.save()
-#        else:
-#            messages.error(request, f"You can't have less than one of this item.")
-#            messages.error(request, f"Please delete it if you want to remove it.")
-#    return redirect(index)
 
 @login_required
 def delete(request):
@@ -138,7 +113,7 @@ def delete(request):
         all_items = LineItem.objects.filter(cart=user_cart)
         meal = all_items.filter(mealplan=prod).get(mealplan=prod)
         meal.delete()
-    return redirect(index)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back after post method
 
 def checkout(request):
     #time = request.GET.get('time')
