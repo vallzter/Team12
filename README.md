@@ -157,9 +157,21 @@ create a dummy database for running the tests
 ## Converting to a local database
 <img src="readme_images/unknown.png" width="500"/>
 If you want to run the tests you most likely have to run them on a local database.
-to do so you have to modify the settings.py file to like like the image above
-and the logging in using a postgres superuser, then the test should be runnable with the commands 
-found in the paragraph above.
+to do so you have to modify the settings.py file to like like the image above.
+The next step is migrating to the database with is done with the function
+```
+>python makemigrations
+#and then
+>python migrate
+```
+
+If there are any migration issues delete all the migration files found in each app and then try again
+also this function helps when collsions occur
+```
+>python manage.py migrate --fake
+```
+Make sure to insert a postgres superuser info into the settings.py, then the test should be runnable with the commands 
+found in the paragraph above. 
 
 
 ## Coverage Report	
