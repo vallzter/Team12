@@ -154,6 +154,11 @@ create a dummy database for running the tests
 > coverage run manage.py test
 ```
 
+## Converting to a local server
+<img src="readme_images/unknown.png" width="500"/>
+
+
+
 ## Coverage Report	
 <img src="readme_images/Coverage.png" width="500"/>
 
