@@ -162,7 +162,7 @@ The next step is migrating to the database with is done with the function
 
 ```
 > python makemigrations
-# and then
+# and then run
 > python migrate
 ```
 
