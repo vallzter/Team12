@@ -154,9 +154,12 @@ create a dummy database for running the tests
 > coverage run manage.py test
 ```
 
-## Converting to a local server
+## Converting to a local database
 <img src="readme_images/unknown.png" width="500"/>
-
+If you want to run the tests you most likely have to run them on a local database.
+to do so you have to modify the settings.py file to like like the image above
+and the logging in using a postgres superuser, then the test should be runnable with the commands 
+found in the paragraph above.
 
 
 ## Coverage Report	
