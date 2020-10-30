@@ -105,7 +105,7 @@ We would like to add logging to the followong components: Register, Login, Add t
 #### Refactoring component into a microservice
 The team would make use of the strangler pattern and move the existing user management functionality outside of the monolithic application. We would copy most, if not all, of the already written logic and then reroute calls from the monolith over to the new microservice. User creation, editing, deletion, authentication and etc. would be handled by the new microservice, which could have its own database to store user information.
 
-![](readme_images/microservices.png)
+![](readme_images/microservice.png)
 
 The microservice would be deployed independently ,which means that we could take our time getting the functionality right, working on implementing this functionality over a period of time. Also, it would mean if the user management service would fail, it would not bring the whole application down, as the service is running on its own instance.
 
