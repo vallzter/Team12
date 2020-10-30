@@ -46,11 +46,9 @@ We decided on wanting to implement two critical components to the website; viewi
 The team decided to focus more in this sprint on getting the tests up and running, as it had been a huge headache for quite some time, as well as the lecture aspects. We finally managed to fix the testing issues and added some nice features as well. Sketching up all the diagrams went rather smoothly, except for the delivery diagram, as it proved to be fairly difficult finding an example of such online or in the textbook.
 
 #### Dependency injection
-
 When adding meal package to the cart, the add(request) method in src/Team12/cart/views.py has a setter injection which is used when setting the customer. The variable customer is set with the correct User object, which represents the customer who is adding a meal package to his cart.
 
 #### Single Responsibility Principle
-
 The function detailed_product() has the single responisibility of sending out details on a product to a template  
 The function cancelSubscription() has the single responsibility of canceling any subscription  
 The function editProfileRedirect() has the single responsibility if redirecting to an edit profile template  
@@ -60,16 +58,13 @@ The function edit_quantity() has the single responsibility of recieving a number
 ### Sprint 4
 
 #### Conway's law
-
 As Conway's law states: ,,Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.".
 
 Therefore, as our software is structured in a layered architecture, our communication structure would have certain team/s working on a particular layer, whether it is the presentation layer, the logic layer or the data layer.
 
 This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer.
 
-
 #### Identifying Components
-
 One of the components that we identified was the django user. The user comes equiped with some nice features like a simple log in system that can be improved upon depending on
 your needs, the user can be completely replaced by a new system but we decided on using it as we didin't notice any downsides. 
 So in conclusion user is both independently replaceable and upgradable.
@@ -77,13 +72,10 @@ So in conclusion user is both independently replaceable and upgradable.
 The next component identified was the postgres database. We decided on using it since most of us used it recently. it proved to be very simple apart from testing issued which 
 was caused by our hosting service. The postgres database in it self can be independently replaced but not upgraded.
 
-
 #### Non-functional requirments
-
 See non-func-requirements.pdf
 
 #### Constraints
-
 <strong>1) Two-week deadline for each sprint</strong>
 
 Addressed by: The team is well organised by using Asana, where every sprint is planned thoroughly for maximum efficiency.
@@ -101,12 +93,18 @@ Addressed by: The team tries to balance the load on the database with good commu
 Addressed by: The team uses Discord for all team communications and meetings and Google Meet for meetings with the TA.
 
 #### Risk management analysis
-
 See risk-management.pdf
 
 #### Logging
 We have completely overlooked logging so far in the development, we have been using the default django error handling for error information.
 We would like to add logging to the followong components: Register, Login, Add to Cart, Remove from Cart, View Product.  This would be done with django's build in logging module that would write all logging from the logger to a local file.  This module provides a lot of functionality and flexibility and the key benefit of having the logging provided by a library module is that all modules can participate in logging, so our application log can include our own messages integrated with messages from third-party modules.
+
+### Sprint 5
+
+#### Refactoring component into a microservice
+The team would make use of the strangler pattern and move the existing user management functionality outside of the monolithic application. We would copy most, if not all, of the already written logic and then reroute calls from the monolith over to the new microservice. User creation, editing, deletion, authentication and etc. would be handled by the new microservice, which could have its own database to store user information.
+
+The microservice would be deployed independently ,which means that we could take our time getting the functionality right, working on implementing this functionality over a period of time. Also, it would mean if the user management service would fail, it would not bring the whole application down, as the service is running on its own instance.
 
 ---
 ## Software architecture
