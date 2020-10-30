@@ -4,7 +4,7 @@
 ![](https://img.shields.io/github/pipenv/locked/dependency-version/vallzter/Team12/psycopg2)
 
 ---
-### Collaborators
+## Collaborators
 
 - Bjarki Már Friðriksson
 - Elmar Ólafsson
@@ -16,7 +16,7 @@
 - Ýmir Þórleifsson
 
 ---
-### Description of the project
+## Description of the project
 The project is a website, developed in Django, for users to easily buy meal packages containing groceries. Similar to Eldum Rétt or Blue Apron, the service will send ingredients to a customer periodically, e.g. on a weekly basis or more often.
 
 ---
@@ -56,7 +56,7 @@ Therefore, as our software is structured in a layered architecture, our communic
 This is not really the case in our project. While this show in some extend, where some team members tend to work only in one layer of the software, but more often that not team members work across all layers, i.e. from the presentation layer to the data layer.
 
 
-### Identifying Components
+#### Identifying Components
 
 One of the components that we identified was the django user. The user comes equiped with some nice features like a simple log in system that can be improved upon depending on
 your needs, the user can be completely replaced by a new system but we decided on using it as we didin't notice any downsides. 
@@ -141,9 +141,9 @@ Open the shell where `get-pip.py` was downloaded.
 
 
 
-### Testing
+## Testing
 
-## How to test
+### How to test
 IMPORTANT: if the user wishes to run the tests, then he has to do so on a local database
 our elephantSQL database does not allow us to run tests as we are not granted the permission to
 create a dummy database for running the tests
@@ -154,7 +154,7 @@ create a dummy database for running the tests
 > coverage run manage.py test
 ```
 
-## Converting to a local database
+### Converting to a local database
 <img src="readme_images/unknown.png" width="500"/>
 If you want to run the tests you most likely have to run them on a local database.
 to do so you have to modify the settings.py file to like like the image above.
@@ -177,7 +177,7 @@ Make sure to insert a postgres superuser info into the settings.py, then the tes
 found in the paragraph above. 
 
 
-## Coverage Report	
+### Coverage Report	
 <img src="readme_images/Coverage.png" width="500"/>
 
 As it can be seen above, all our apps are almost completely coved by the test.
@@ -205,7 +205,7 @@ We utilized 6 design patterns in sprint 2 which are listed below:
 	The admininstrator can see and edit the packages which are then displayed to users if available.</li>
 </ul>
 
-## Screens
+## Screenshots
 <table>
     <tr>
         <th>
