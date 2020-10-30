@@ -25,6 +25,18 @@ The project is a website, developed in Django, for users to easily buy meal pack
 ### Sprint 1
 We decided on building the website with Django as framework connected to a Postgres as database. Possibly using Atomic for the UI in the future. We are currently using built-in models, admin and users. As of now, the website contains functionality for users to register, login, look at their profile, logout and delete their account.
 
+#### Encapsulation
+Django has some form of encapsulation where the models provide classes that consist of data and methods that have been bundled into a single unit, and the views can create instances of those classes. However, it can often happen that Django developers end up splitting logic across both the model code and the view code, thus breaking the encapsulation that the model class should provide.
+
+#### Inheritance
+In our software, all our models inherit from the Model base class from the models module (models.Model).
+
+#### Polymorphism
+As our software represents an e-commerce website, polymorphism is depicted in several ways including, user creation and when user's cart includes product/s. When a user is created the model requires different information about the user (e.g. username, email etc.). Therefore, the user object can take on many forms. Same thing goes for the user's cart, which the user can add different products to his cart.
+
+#### Abstract classes
+We are currently not using any abstract classes in our software.
+
 ---
 ### Sprint 2
 We decided on wanting to implement two critical components to the website; viewing of products and online shopping. We used the RESTful API architecture to display the products. But making the online shopping was more diffcult than we thought, 6 models needed to be implemented for the database. But we managed to create the views and get it up and running.
