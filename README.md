@@ -99,6 +99,7 @@ See risk-management.pdf
 We have completely overlooked logging so far in the development, we have been using the default django error handling for error information.
 We would like to add logging to the followong components: Register, Login, Add to Cart, Remove from Cart, View Product.  This would be done with django's build in logging module that would write all logging from the logger to a local file.  This module provides a lot of functionality and flexibility and the key benefit of having the logging provided by a library module is that all modules can participate in logging, so our application log can include our own messages integrated with messages from third-party modules.
 
+---
 ### Sprint 5
 
 #### Refactoring component into a microservice
