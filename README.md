@@ -189,6 +189,7 @@ found in the paragraph above.
 
 
 ### Coverage Report	
+
 <img src="readme_images/Coverage.png" width="500"/>
 
 As it can be seen above, all our apps are almost completely coved by the test.
