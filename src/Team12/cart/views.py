@@ -33,6 +33,7 @@ def add(request):
         raise Http404()
     prod_id = request.POST.get('id')
     quantity = request.POST.get('quantity') or 1
+    size = request.POST.get('size') or 2
     prod = MealPlan.objects.get(pk=prod_id)
     customer = User.objects.get(username=request.user)
     user_cart, create = Cart.objects.get_or_create(web_user=customer)
@@ -41,9 +42,10 @@ def add(request):
         all_items = LineItem.objects.filter(cart=user_cart)
         meal = all_items.get(mealplan=prod)
         meal.quantity += int(quantity)
+        meal.size += int(size)
         meal.save()
     else:
-        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
+        cart_item = LineItem(quantity=quantity,size=size,mealplan=prod,cart=user_cart)
         cart_item.save()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back after post method
@@ -93,7 +95,7 @@ def subscribe(request):
     customer = Customer.objects.get(web_user=user)
     customer.subscription = prod#adds priduct id to subscription
     customer.save()
-    return redirect(index)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 @login_required

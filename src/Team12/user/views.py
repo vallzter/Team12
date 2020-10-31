@@ -1,6 +1,6 @@
 # Http modules
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Authentication
 from django.contrib.auth import login, authenticate
@@ -74,7 +74,7 @@ def cancelSubscription(request):
     customer = Customer.objects.get(web_user=user)
     customer.subscription = None#cancel all subscriptions, this will be updated later to cancel individual
     customer.save()
-    return redirect(index)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 @login_required
 def editProfileRedirect(request):
