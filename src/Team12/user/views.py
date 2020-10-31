@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from cart.models import PaymentMethod, ShippingAddress
 from user.models import Customer
+from product.models import MealPlan
 
 
 def register(request):
@@ -45,7 +46,13 @@ def index(request):
     '''
     User page / menu
     '''
-    return render(request, 'user/user_page.html')
+    data = MealPlan.objects.get(pk=2) # simple index which draws all meal plans from the database
+
+    context = {
+        "product": data,
+    }
+
+    return render(request, 'user/user_page.html', context)
 
 
 @login_required
