@@ -43,7 +43,7 @@ class PaymentMethod(models.Model):
 
 
 class LineItem(models.Model):
-
+    size     = models.IntegerField(_("Size"))
     quantity = models.IntegerField(_("Quantity"))
     mealplan = models.ForeignKey("product.MealPlan", verbose_name=_(""), on_delete=models.CASCADE)
     cart     = models.ForeignKey("Cart", verbose_name=_("Cart"), on_delete=models.CASCADE)
@@ -69,7 +69,7 @@ class LineItem(models.Model):
 
 class Cart(models.Model):
 
-    # customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.CASCADE, blank=True, null=True)
+    customer = models.ForeignKey("user.Customer", verbose_name=_("Customer"), on_delete=models.CASCADE, blank=True, null=True)
     web_user = models.ForeignKey(get_user_model(), verbose_name="Web User", on_delete=models.CASCADE, related_name="cart_owner")
     created  = models.DateField(_("Ceation date"), auto_now_add=True)
 
