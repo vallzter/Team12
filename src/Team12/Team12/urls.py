@@ -1,3 +1,4 @@
+
 """Team12 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from user import views
+
 
 urlpatterns = [
+    path('', views.index , name='Index'),
     path('admin/', admin.site.urls),
-    path('user/', include('user.urls'))
+    path('user/', include('user.urls')),
+    path('products/', include('product.urls')), # url for product page
+    path('cart/', include('cart.urls')) # url for cart inspection
 ]
