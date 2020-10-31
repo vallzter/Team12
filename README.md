@@ -190,7 +190,7 @@ found in the paragraph above.
 
 ### Coverage Report	
 
-<img src="readme_images/Coverage.png" width="500"/>
+<img src="readme_images/Coverage_Sprint_5.png" width="500"/>
 
 As it can be seen above, all our apps are almost completely coved by the test.
 For a more detailed report check the htmlcov located in src/team12/htmlcov.
