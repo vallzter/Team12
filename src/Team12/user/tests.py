@@ -12,21 +12,22 @@ import sys
 
 class FrontPageTest(TestCase):
     def setUp(self):
-        self.credentials = {
+        self.credentials = { # basic fake user 
             'username': 'testuser',
             'password': 'secret321'}
         User.objects.create_user(**self.credentials)
          
 
     def testLogin(self):
-        response = self.client.post('/user/login/', **self.credentials, follow=True)  
+        response = self.client.post('/user/login/', **self.credentials, follow=True)  #simple log in test
+
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
     def test_profile(self):
         response = self.client.post('/user/login/', self.credentials, follow=True)
         # should be logged in now
-        self.assertTrue(response.context['user'].is_active)
+        self.assertTrue(response.context['user'].is_active) # returns true if user is successfuly logged in
         self.assertEqual(response.status_code, 200)
         response = self.client.get('/user/register/')
         self.assertEqual(response.status_code, 200)
@@ -38,13 +39,13 @@ class FrontPageTest(TestCase):
         self.assertTrue(response.context['user'].is_active)
         self.assertEqual(response.status_code, 200)
         response = self.client.get('/user/editProfile/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertTemplateUsed("user/edit.html")
         response = self.client.get('/user/edit/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed("user/edit.html")
         response = self.client.get('/user/editProfile/')
-        data = {
+        data = { # New profile in json format
             'fname': 'testuser',
             'lname': 'secret321',
             'email': 'testuser',
@@ -60,7 +61,7 @@ class FrontPageTest(TestCase):
             'name': 'Hrafnkell Þorri',
             }
         response = self.client.post('/user/editProfile/', data)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
 
 
@@ -68,7 +69,7 @@ class FrontPageTest(TestCase):
         response = self.client.get('/user/register/')
         self.assertTemplateUsed(response, "user/register.html")
         self.assertEqual(response.status_code, 200)
-        data = {
+        data = { # json for a new fake user
                 'username': 'DjangoBoi',
                 'password1': 'secret321',
                 'password2': 'secret321',
@@ -77,7 +78,7 @@ class FrontPageTest(TestCase):
                 'email': 'testuser',
                 }
         form = UserCreationForm(data)
-        print(form.errors)
+        # print(form.errors) #Used for debug
         if form.is_valid():
             response = self.client.post('/user/register/', data)
             response = self.client.get('/user/')
@@ -91,21 +92,28 @@ class removeUser(TestCase):
     def setUp(self):
         self.credentials = {
             'username': 'testuser2',
-            'password': 'secret3211231'}
+            'password': 'secret3211231'} # create fake test users
         self.supercredentials = {
             'username': 'administrator',
-            'password': 'GobleGobleTwinkleGobble123'} 
+            'password': 'GobleGobleTwinkleGobble123'}  # this is a fake super user
         User.objects.create_superuser(**self.supercredentials)
 
     def test_remove_super_user(self):
-        response = self.client.post('/admin/', **self.supercredentials, follow=True)
-        response = self.client.get('/user/remove/')
+        response = self.client.post('/admin/', **self.supercredentials, follow=True) #loging in as a super user
+        response = self.client.get('/user/remove/') #test the remove page
         self.assertEqual(response.status_code, 200)
+        
+        
+        
+        
+        #response = self.client.post('/admin/', **self.supercredentials, follow=True)
+        #response = self.client.get('/user/remove/')
+        #self.assertEqual(response.status_code, 200)
         #self.assertTemplateUsed(response, "user/user_remove.html")
 
     def test_remove_user(self):
         
-        responseExtra = self.client.post('/user/login/', **self.credentials, follow=True)
+        responseExtra = self.client.post('/user/login/', **self.credentials, follow=True) #loging in as a regular user
         responseExtra = self.client.get('/user/remove/') 
         self.assertEqual(responseExtra.status_code, 200)
         responseExtra = self.client.post('/user/remove/') 
