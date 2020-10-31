@@ -45,6 +45,7 @@ class PaymentMethod(models.Model):
 class LineItem(models.Model):
 
     quantity = models.IntegerField(_("Quantity"))
+    size     = models.IntegerField(_("Size"))
     mealplan = models.ForeignKey("product.MealPlan", verbose_name=_(""), on_delete=models.CASCADE)
     cart     = models.ForeignKey("Cart", verbose_name=_("Cart"), on_delete=models.CASCADE)
 

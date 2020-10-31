@@ -31,6 +31,7 @@ def add(request):
         raise Http404()
     prod_id = request.POST.get('id')
     quantity = request.POST.get('quantity') or 1
+    size = request.POST.get('size') or 2
     prod = MealPlan.objects.get(pk=prod_id)
     customer = User.objects.get(username=request.user)
     user_cart = 0
@@ -43,14 +44,15 @@ def add(request):
             all_items = LineItem.objects.filter(cart=user_cart)
             meal = all_items.filter(mealplan=prod).get(mealplan=prod)
             meal.quantity += int(quantity)
+            meal.size += int(size)
             meal.save()
         else:#add item
-            cart_item = LineItem(quantity=quantity,mealplan=prod,cart=user_cart)
+            cart_item = LineItem(quantity=quantity,size=size,mealplan=prod,cart=user_cart)
             cart_item.save()
     else:#make a new one
         new_cart = Cart(web_user=customer, created=timezone.now())
         new_cart.save()
-        cart_item = LineItem(quantity=quantity,mealplan=prod,cart=new_cart)
+        cart_item = LineItem(quantity=quantity,size=size,mealplan=prod,cart=new_cart)
         cart_item.save()
     return redirect(index)
 
