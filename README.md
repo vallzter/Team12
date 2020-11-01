@@ -221,40 +221,60 @@ We utilized 6 design patterns in sprint 2 which are listed below:
 
 ### Homepage
 
+The website's homepage.
+
 <img src="readme_images/screenshots/home-page.PNG" width="500"/>
 
-### Register
+### User registration
+
+User can register by choosing a username and password. The password must contain at least 8 characters and be entirely numeric.
 
 <img src="readme_images/screenshots/Register.PNG" width="500"/>
 
-### Login
+### User login
+
+User enters his/hers username and password. It is also possible to sign up in this view.
 
 <img src="readme_images/screenshots/Login.PNG" width="500"/>
 
-### Profile
+### User profile
+
+The user profile displays the user's name, email, phone and whether he/she has a subscription plan. Here, the user can edit his/hers profile, logout or remove his/hers account.
 
 <img src="readme_images/screenshots/Profile.PNG" width="500"/>
 
-### Edit profile
+### Edit user profile
+
+This view displays the general information about the user, and also the user's payment information.
 
 <img src="readme_images/screenshots/Edit-Profile.PNG" width="500"/>
 
-### Products
+### View of list of products
+
+This view displays a list of all products available. Here the user can sort products by the highest or lowest price, and it is also possible to filter after certain price ranges.
 
 <img src="readme_images/screenshots/Profucts.PNG" width="500"/>
 
-### Product
+### View of product
+
+The user can get information about certain products, like the product's ingredients and recipe. Here it is also possible to set the size of the meal package and quantity.
 
 <img src="readme_images/screenshots/product.PNG" width="500"/>
 
-### Small cart
+### Side shopping cart
+
+The website includes a neat side shopping cart, where users can view their shopping cart while browsing for other products.
 
 <img src="readme_images/screenshots/Small-cart.PNG" width="500"/>
 
-### Main cart
+### Main shopping cart
+
+Displays the user's products which he/she intends to purchase. Here you can also remove the meal package from the cart and also edit the quantity.
 
 <img src="readme_images/screenshots/main-cart.PNG" width="500"/>
 
 ### Checkout
+
+At the checkout the user chooses a delivery time and location of his product/s in order to receive them and enjoy.
 
 <img src="readme_images/screenshots/select-time-address.PNG" width="500"/>
