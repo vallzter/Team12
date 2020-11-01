@@ -71,6 +71,26 @@ def edit_quantity(request):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back after post method
 
 @login_required
+def edit_size(request):
+    if request.method != "POST":
+        raise Http404()
+    customer = User.objects.get(username=request.user)
+    prod_id = request.POST.get('id')
+    size = request.POST.get('size') or 2
+    user_cart = 0
+    try:
+        user_cart = Cart.objects.get(web_user=customer)
+    except:
+        pass
+    if user_cart:
+        prod = MealPlan.objects.get(pk=prod_id)
+        all_items = LineItem.objects.filter(cart=user_cart)
+        meal = all_items.filter(mealplan=prod).get(mealplan=prod)
+        meal.size = int(size)
+        meal.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) # Redirects back a
+
+@login_required
 def change_quantity(request):
     if request.method != "POST":
         raise Http404()
