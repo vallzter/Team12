@@ -218,29 +218,14 @@ We utilized 6 design patterns in sprint 2 which are listed below:
 </ul>
 
 ## Screenshots
-<table>
-    <tr>
-        <th>
-            Homepage
-            <img src="readme_images/homepage.png" width="200"/>
-        </th>
-        <th>
-            Profile Page
-            <img src="readme_images/profilepage.png" width="200"/>
-        </th>
-        <th>
-            Product Page
-            <img src="readme_images/productpage.png" width="200"/>
-        </th>
-    </tr>
-    <tr> 
-        <th>
-            Product Detailed
-            <img src="readme_images/productdetailed.png" width="200"/>
-        </th>
-        <th>
-            Cart Page
-            <img src="readme_images/cartpage.png" width="200"/>
-        </th>
-    </tr>
-</table>
+
+<img src="readme_images/screenshots/Edit-Profile.png" width="500"/>
+<img src="readme_images/screenshots/Login.png" width="500"/>
+<img src="readme_images/screenshots/Profile.png" width="500"/>
+<img src="readme_images/screenshots/Profucts.png" width="500"/>
+<img src="readme_images/screenshots/Register.png" width="500"/>
+<img src="readme_images/screenshots/Small-cart.png" width="500"/>
+<img src="readme_images/screenshots/home-page.png" width="500"/>
+<img src="readme_images/screenshots/main-cart.png" width="500"/>
+<img src="readme_images/screenshots/product.png" width="500"/>
+<img src="readme_images/screenshots/select-time-address.png" width="500"/>
