@@ -219,13 +219,13 @@ We utilized 6 design patterns in sprint 2 which are listed below:
 
 ## Screenshots
 
-<img src="readme_images/screenshots/Edit-Profile.png" width="500"/>
-<img src="readme_images/screenshots/Login.png" width="500"/>
-<img src="readme_images/screenshots/Profile.png" width="500"/>
-<img src="readme_images/screenshots/Profucts.png" width="500"/>
-<img src="readme_images/screenshots/Register.png" width="500"/>
-<img src="readme_images/screenshots/Small-cart.png" width="500"/>
-<img src="readme_images/screenshots/home-page.png" width="500"/>
-<img src="readme_images/screenshots/main-cart.png" width="500"/>
-<img src="readme_images/screenshots/product.png" width="500"/>
-<img src="readme_images/screenshots/select-time-address.png" width="500"/>
+<img src="readme_images/screenshots/Edit-Profile.PNG" width="500"/>
+<img src="readme_images/screenshots/Login.PNG" width="500"/>
+<img src="readme_images/screenshots/Profile.PNG" width="500"/>
+<img src="readme_images/screenshots/Profucts.PNG" width="500"/>
+<img src="readme_images/screenshots/Register.PNG" width="500"/>
+<img src="readme_images/screenshots/Small-cart.PNG" width="500"/>
+<img src="readme_images/screenshots/home-page.PNG" width="500"/>
+<img src="readme_images/screenshots/main-cart.PNG" width="500"/>
+<img src="readme_images/screenshots/product.PNG" width="500"/>
+<img src="readme_images/screenshots/select-time-address.PNG" width="500"/>
