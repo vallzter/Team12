@@ -219,13 +219,39 @@ We utilized 6 design patterns in sprint 2 which are listed below:
 
 ## Screenshots
 
-<img src="readme_images/screenshots/Edit-Profile.PNG" width="500"/>
-<img src="readme_images/screenshots/Login.PNG" width="500"/>
-<img src="readme_images/screenshots/Profile.PNG" width="500"/>
-<img src="readme_images/screenshots/Profucts.PNG" width="500"/>
-<img src="readme_images/screenshots/Register.PNG" width="500"/>
-<img src="readme_images/screenshots/Small-cart.PNG" width="500"/>
+#### Homepage
+
 <img src="readme_images/screenshots/home-page.PNG" width="500"/>
-<img src="readme_images/screenshots/main-cart.PNG" width="500"/>
+
+#### Register
+
+<img src="readme_images/screenshots/Register.PNG" width="500"/>
+
+#### Login
+
+<img src="readme_images/screenshots/Login.PNG" width="500"/>
+
+#### Profile
+
+<img src="readme_images/screenshots/Profile.PNG" width="500"/>
+
+#### Edit profile
+
+<img src="readme_images/screenshots/Edit-Profile.PNG" width="500"/>
+
+#### Products
+
+<img src="readme_images/screenshots/Profucts.PNG" width="500"/>
+
+#### Product
+
 <img src="readme_images/screenshots/product.PNG" width="500"/>
+
+#### Small cart
+<img src="readme_images/screenshots/Small-cart.PNG" width="500"/>
+
+#### Main cart
+<img src="readme_images/screenshots/main-cart.PNG" width="500"/>
+
+#### Checkout
 <img src="readme_images/screenshots/select-time-address.PNG" width="500"/>
